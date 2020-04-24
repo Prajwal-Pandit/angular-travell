@@ -1,0 +1,21 @@
+<mat-toolbar>  
+  <mat-toolbar-row fxLayoutAlign = "space-between center">
+    <div fxLayout="row">
+        <button mat-button class = "trans" >
+            <mat-icon>flight_takeoff</mat-icon>
+            <a href="#"><span class="icon">Travel</span></a>
+        </button>
+    </div>
+    <div>
+      <div *ngIf= "!deviceXs" fxLayoutGap = "5px">
+          <button mat-flat-button>English(UK)/Nepal(NPR)</button>
+          <button mat-flat-button >Log In</button>
+        </div>
+    </div>  
+  </mat-toolbar-row>
+
+  <mat-toolbar-row *ngIf="deviceXs"  fxLayoutAlign = "space-between center">
+    <button mat-flat-button >English(UK)/Nepal(NPR)</button>
+    <button mat-flat-button >Log In</button>
+  </mat-toolbar-row>
+</mat-toolbar>

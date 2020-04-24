@@ -1,0 +1,48 @@
+<div fxLayout="row" fxLayout.xs="row" fxLayoutGap = "5px" fxLayoutWrap>
+    <button mat-flat-button color = "warn"><mat-icon>flight</mat-icon> Flights</button>
+    <button mat-flat-button color = "warn"><mat-icon>hotel</mat-icon> Hotels</button>
+    <button mat-flat-button color = "warn"><mat-icon>directions_car</mat-icon> CarHire</button>
+</div>
+
+
+<div class = "mainImg">
+</div>
+
+
+<div fxLayout="column" fxLayout.xs="column" fxLayoutGap = "8px" fxLayoutWrap fxLayoutAlign="center">
+    <div class="container" fxLayout="row" fxLayoutGap = "8px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+    <div fxFlex="22%" class = board>
+        <img mat-card-image class="img" [src]="nepalImg">
+        <p class = "decorate"> Kathmandu </p>
+        <div fxLayout="row" fxLayout.xs="row" fxLayoutWrap>
+            <a href = "#"><button mat-icon-button color = "warn">Flights </button></a>
+            <a href = "#"><button mat-icon-button color = "warn">Hotels </button></a>
+            <a href = "#"><button mat-icon-button color = "warn">CarHire </button></a>
+        </div>
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="tokyoImg">
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="singImg">
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="sanImg">
+    </div>
+    </div>
+
+    <div class="container" fxLayout="row" fxLayoutGap = "8px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="lonImg">
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="canImg">
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="newImg">
+    </div>
+    <div fxFlex="22%">
+        <img mat-card-image class="img" [src]="ausImg">
+    </div>
+    </div>
+</div>
