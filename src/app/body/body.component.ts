@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class BodyComponent {
   @Input() deviceXs: boolean;
   nepalImg =
-    'https://media.tacdn.com/media/attractions-splice-spp-674x446/07/87/d3/92.jpg';
+    'https://stillmed.olympic.org/media/Images/OlympicOrg/News/2020/03/30/2020-03-30-tokyo-thumbnail-02.jpg';
   tokyoImg =
     'https://stillmed.olympic.org/media/Images/OlympicOrg/News/2020/03/30/2020-03-30-tokyo-thumbnail-02.jpg';
   sanImg =
