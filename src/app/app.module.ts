@@ -9,6 +9,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BodyComponent } from './body/body.component';
 import { MatCardModule } from '@angular/material/card';
+import { DataService } from './data.service';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BodyComponent],
@@ -21,7 +22,7 @@ import { MatCardModule } from '@angular/material/card';
     FlexLayoutModule,
     MatCardModule,
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
