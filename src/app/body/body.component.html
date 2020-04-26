@@ -1,13 +1,7 @@
 <br>
 <div fxLayout="row" fxLayout.xs="row" fxLayoutGap="5px" fxLayoutWrap>
-  <button mat-flat-button color="warn">
-    <mat-icon>flight</mat-icon> Flights
-  </button>
-  <button mat-flat-button color="warn">
-    <mat-icon>hotel</mat-icon> Hotels
-  </button>
-  <button mat-flat-button color="warn">
-    <mat-icon>directions_car</mat-icon> CarHire
+  <button mat-flat-button color="warn" *ngFor = "let btn of button">
+    <mat-icon>{{btn.icon}}</mat-icon> {{btn.text}} 
   </button>
 </div>
 
@@ -18,29 +12,25 @@
     <p class = "decorate">Plan your perfect trip</p>
     <p>Search Flights, Hotels & Car Hire to our most popular destinations</p>
 
-  <div class="container" fxLayout="column" fxLayoutGap="10px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
-    <div class="container" fxLayout="row" fxLayoutGap="5px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
-      <div fxFlex="22"  class="board" *ngFor="let imagess of images">
-        <img mat-card-image class="img" src={{imagess.image}}>
-        <p class="decorate"> {{imagess.name}} </p>
-        <p>{{imagess.desc}}</p>
-          <!--<div fxLayout="row" fxLayout.xs="row" fxLayoutWrap>
-          <a href="#"><button mat-icon-button color="warn">{{imagess.place}} </button></a>
-          <a href="#"><button mat-icon-button color="warn">{{imagess.desc}} </button></a>
-          <a href="#"><button mat-icon-button color="warn">Book Now </button></a>
-        </div>-->
+  <div class="container" fxLayout="column" fxLayoutGap="20px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+    <div class="container" fxLayout="row" fxLayoutGap="8px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+      <div fxFlex="22%"  class="board" *ngFor="let image1 of images1">
+        <img mat-card-image class="img" src={{image1.image}}>
+        <p class="decorate"> {{image1.name}} </p>
+        <p>{{image1.desc}}</p>
+          <div fxLayout="row" fxLayoutGap = "5px" fxLayout.xs="row" fxLayoutWrap>
+          <button mat-icon-button color="warn" *ngFor = "let btn of button"><a href="#"> {{btn.text}} </a></button>
+        </div>
       </div>
-      </div>
-      <div class="container" fxLayout="row" fxLayoutGap="5px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
-      <div fxFlex="22" class="board" *ngFor="let imagess of images">
-        <img mat-card-image class="img" src={{imagess.image}}>
-        <p class="decorate"> {{imagess.name}} </p>
-        <p>{{imagess.desc}}</p>
-          <!--<div fxLayout="row" fxLayout.xs="row" fxLayoutWrap>
-          <a href="#"><button mat-icon-button color="warn">{{imagess.place}} </button></a>
-          <a href="#"><button mat-icon-button color="warn">{{imagess.desc}} </button></a>
-          <a href="#"><button mat-icon-button color="warn">Book Now </button></a>
-        </div>-->
+    </div>
+    <div class="container" fxLayout="row" fxLayoutGap="8px" fxLayout.xs="column" fxLayoutWrap fxLayoutAlign="center">
+      <div fxFlex="22%" class="board" *ngFor="let image2 of images2">
+        <img mat-card-image class="img" src={{image2.image}}>
+        <p class="decorate"> {{image2.name}} </p>
+        <p>{{image2.desc}}</p>
+        <div fxLayout="row" fxLayoutGap = "5px" fxLayout.xs="row">
+          <button mat-icon-button color="warn" *ngFor = "let btn of button"><a href = "#"> {{btn.text}} </a></button>
+        </div>
       </div>
     </div>
   </div>
