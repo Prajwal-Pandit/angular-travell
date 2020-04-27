@@ -12,12 +12,14 @@ export class BodyComponent implements OnInit {
   public images1 = [];
   public images2 = [];
   public button = [];
+  public radiobtn = [];
 
   
   constructor(private data: DataService) {
     this.images1 = this.data.getdataf();
     this.images2 = this.data.getdatas();
     this.button = this.data.getbutton();
+    this.radiobtn = this.data.radio();
   }
   ngOnInit() {}
 }

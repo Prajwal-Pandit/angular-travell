@@ -1,10 +1,10 @@
 .img {
   width: 100%;
-  margin-bottom: 5%;
+  margin-bottom: 2%;
   height: 200px;
 }
 
-button{
+button {
   margin-left: 5px;
 }
 
@@ -18,10 +18,6 @@ a {
   margin-bottom: 2%;
 }
 
-.container {
-  width: 100%;
-}
-
 p {
   text-align: center;
 }
@@ -29,8 +25,10 @@ p {
 .mainImg {
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/5/56/Xiamen_Night_Beach.jpg');
   width: 100%;
-  min-width: 100%;
   height: 680px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-size: 100% 100%;
 }
 
 .board {
@@ -40,4 +38,21 @@ p {
 .decorate {
   font-family: Verdana;
   font-size: 20px;
+}
+
+.decorate1 {
+  font-family: Verdana;
+  font-size: 45px;
+  color: #ffffff;
+  margin-top: 70px;
+  margin-bottom: 60px;
+}
+
+main {
+  width: 60%;
+  max-width: 60%;
+}
+
+mat-radio-button {
+  margin-right: 1em;
 }

@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BodyComponent } from './body/body.component';
+import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { DataService } from './data.service';
 
@@ -21,6 +22,7 @@ import { DataService } from './data.service';
     MatIconModule,
     FlexLayoutModule,
     MatCardModule,
+    MatRadioModule,
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

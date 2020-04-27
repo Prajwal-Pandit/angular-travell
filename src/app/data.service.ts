@@ -10,7 +10,7 @@ export class DataService {
     return [
       {
         image:
-          'https://stillmed.olympic.org/media/Images/OlympicOrg/News/2020/03/30/2020-03-30-tokyo-thumbnail-02.jpg',
+          'https://www.himalayansherpaholidays.com/wp-content/uploads/2018/10/kathmandu-durbar-square-day-tour78.jpeg',
         name: 'KATHMANDU',
         place: 'Nepal',
         desc:
@@ -85,6 +85,14 @@ export class DataService {
       { text: 'Flights', icon: 'flight' },
       { text: 'Hotels', icon: 'hotel' },
       { text: 'Car-Hire', icon: 'directions_car' },
+    ];
+  }
+
+  public radio() {
+    return [
+      { text: 'Return', state: 'checked' },
+      { text: 'One-Way', state: 'unchecked' },
+      { text: 'Multi-city', state: 'unchecked' },
     ];
   }
 }
