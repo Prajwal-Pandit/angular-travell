@@ -1,0 +1,41 @@
+.button1 {
+  margin-left: 5px;
+}
+
+p {
+  text-align: center;
+}
+
+.container {
+  margin: 8px 16px;
+  min-height: 100%;
+}
+mat-radio-group {
+  padding-left: 10px;
+}
+.marge {
+  margin: 8px;
+}
+.gap {
+  margin: 35px;
+}
+.flex {
+  flex: 1 1 auto;
+}
+.container .mat-form-field {
+  margin: 8px;
+}
+.container .mat-checkbox {
+  margin: 8px;
+}
+.mobileContainer mat-form-field {
+  margin: 8px 16px;
+}
+
+.example-month-picker .mat-calendar-period-button {
+  pointer-events: none;
+}
+
+.example-month-picker .mat-calendar-arrow {
+  display: none;
+}

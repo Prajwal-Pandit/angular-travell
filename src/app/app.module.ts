@@ -24,11 +24,15 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatDialogModule } from '@angular/material/dialog';
+import { PaymentComponent } from './payment/payment.component';
+import { MomentDateAdapter } from '@angular/material-moment-adapter';
+import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, BodyComponent],
+  declarations: [AppComponent, HeaderComponent, BodyComponent, PaymentComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,7 +54,9 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatOptionModule,
     MatSlideToggleModule,
     ReactiveFormsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatDialogModule,
+    MomentDateAdapter, MatMomentDateModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

@@ -1,0 +1,103 @@
+<div fxLayout="column" fxLayoutGap="10px" fxLayout.xs="column" fxLayoutGap = "20px" >
+  <div fxLayout="column" fxLayoutGap="8px" fxLayout.xs="column"  fxLayoutAlign="center center">
+    <div class="container" style="width:100%;" fxFlex.xs="90%">
+      <mat-label>Billing Details</mat-label>
+    <br>
+      <form>
+        <div fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center" ngClass.xs="mobileContainer">
+          <div fxLayout="column">
+            <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-label>First & Last Name</mat-label>
+              <input matInput>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column">
+            <mat-form-field appearance="fill" fxFlex="40%">
+              <mat-label>Email Address</mat-label>
+              <input matInput type = "email">
+            </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
+            <div fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-label>Country</mat-label>
+              <mat-select>
+                <div fxLayout="column" >
+                  <mat-option *ngFor='let country of countries' [value]="country.name">
+                    {{country.name}}
+                  </mat-option>
+                </div>  
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center" ngClass.xs="mobileContainer">
+          <div fxLayout="column">
+            <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-label>State</mat-label>
+            <input matInput>
+            </mat-form-field>
+          </div>
+          <div fxLayout="column">
+            <mat-form-field appearance="fill" fxFlex="40%">
+              <mat-label>Zip Coastal/Postal</mat-label>
+              <input matInput>
+            </mat-form-field>
+            </div>
+          </div>
+          <mat-label>Payment Method</mat-label>
+          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
+            <div fxLayout="column" fxLayoutGap="8px">
+              <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-label>Card</mat-label>
+                <mat-select>
+                  <div fxLayout="column" >
+                    <mat-option *ngFor='let card of cards' [value]="card.name">
+                      {{card.name}}
+                    </mat-option>
+                  </div>  
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutGap="8px">
+             <mat-form-field appearance="fill" fxFlex="40%">
+              <mat-label>Card Number</mat-label>
+              <input matInput type = "numeric">
+            </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutGap="8px">
+              <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-label>Card</mat-label>
+                <mat-select>
+                  <div fxLayout="column" >
+                    <mat-option *ngFor='let card of cards' [value]="card.name">
+                      {{card.name}}
+                    </mat-option>
+                  </div>  
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <div fxLayout="column" fxLayoutGap="8px">
+            <mat-form-field>
+              <mat-label>Month and Year</mat-label>
+              <input matInput [matDatepicker]="dp" [formControl]="date">
+              <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
+              <mat-datepicker #dp
+                              startView="multi-year"
+                              (yearSelected)="chosenYearHandler($event)"
+                              (monthSelected)="chosenMonthHandler($event, dp)"
+                              panelClass="example-month-picker">
+              </mat-datepicker>
+            </mat-form-field>
+            </div>
+          </div>
+          <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
+          <button class="marge" mat-flat-button color="warn"><mat-icon>search</mat-icon>Search Flights</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+  

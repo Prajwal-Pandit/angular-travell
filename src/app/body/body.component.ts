@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DataService } from '../data.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { PaymentComponent } from '../payment/payment.component';
 
 
 @Component({
@@ -11,33 +12,30 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class BodyComponent implements OnInit {
   @Input() deviceXs: boolean;
 
+  animal: string;
+  name: string;
+
+
   public images1 = [];
   public images2 = [];
   public button = [];
   public radiobtn = [];
 
-
-  step = 0;
-
-  setStep(index: number) {
-    this.step = index;
-  }
-
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
-
-  constructor(public data: DataService) {
+  constructor(public data: DataService, public dialog: MatDialog) {
     this.images1 = this.data.getdataf();
     this.images2 = this.data.getdatas();
     this.button = this.data.getbutton();
     this.radiobtn = this.data.radio();
 
+  }
+  openDialog(): void {
+    let dialogRef = this.dialog.open(PaymentComponent, {
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
   ngOnInit() { }
 }
