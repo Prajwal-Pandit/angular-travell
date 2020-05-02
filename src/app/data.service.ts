@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root',
 })
 export class DataService {
-  constructor() {}
+  constructor() { }
 
   public getdataf() {
     return [
       {
         image:
-          'https://www.himalayansherpaholidays.com/wp-content/uploads/2018/10/kathmandu-durbar-square-day-tour78.jpeg',
-        name: 'KATHMANDU',
+          'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSTv_dN7Lungz9_Qmdd0QKV1MCTuOUsd0c70EvGPogF7DfgkBya&usqp=CAU',
+        name: 'Kathmandu',
         place: 'Nepal',
         desc:
           'Nepal is a tremendously attractive location for mountaineers, rock climbers and adventure seekers.It is being an attractive destination for adventure.',
@@ -90,9 +91,11 @@ export class DataService {
 
   public radio() {
     return [
-      { text: 'Return', state: 'checked' },
-      { text: 'One-Way', state: 'unchecked' },
-      { text: 'Multi-city', state: 'unchecked' },
+      { text: 'Return', state: 'true' },
+      { text: 'One-Way', state: 'false' },
+      { text: 'Multi-city', state: 'false' },
     ];
   }
+
+
 }

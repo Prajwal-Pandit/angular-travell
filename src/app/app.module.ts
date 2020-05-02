@@ -11,6 +11,21 @@ import { BodyComponent } from './body/body.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { DataService } from './data.service';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatGridListModule } from '@angular/material/grid-list';
+
+
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, BodyComponent],
@@ -23,8 +38,21 @@ import { DataService } from './data.service';
     FlexLayoutModule,
     MatCardModule,
     MatRadioModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    FormsModule,
+    MatExpansionModule,
+    MatMenuModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule,
+    MatGridListModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
