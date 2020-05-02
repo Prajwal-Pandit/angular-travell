@@ -78,19 +78,6 @@
                 </mat-select>
               </mat-form-field>
             </div>
-            <div fxLayout="column" fxLayoutGap="8px">
-            <mat-form-field>
-              <mat-label>Month and Year</mat-label>
-              <input matInput [matDatepicker]="dp" [formControl]="date">
-              <mat-datepicker-toggle matSuffix [for]="dp"></mat-datepicker-toggle>
-              <mat-datepicker #dp
-                              startView="multi-year"
-                              (yearSelected)="chosenYearHandler($event)"
-                              (monthSelected)="chosenMonthHandler($event, dp)"
-                              panelClass="example-month-picker">
-              </mat-datepicker>
-            </mat-form-field>
-            </div>
           </div>
           <div fxLayout="column" fxLayout.xs="column" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
           <button class="marge" mat-flat-button color="warn"><mat-icon>search</mat-icon>Search Flights</button>
