@@ -26,8 +26,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaymentComponent } from './payment/payment.component';
-import { MomentDateAdapter } from '@angular/material-moment-adapter';
-import { MatMomentDateModule } from '@angular/material-moment-adapter'
 
 
 
@@ -56,7 +54,7 @@ import { MatMomentDateModule } from '@angular/material-moment-adapter'
     ReactiveFormsModule,
     MatGridListModule,
     MatDialogModule,
-    MomentDateAdapter, MatMomentDateModule
+
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
