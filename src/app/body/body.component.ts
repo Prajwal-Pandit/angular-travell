@@ -15,6 +15,7 @@ export class BodyComponent implements OnInit {
   animal: string;
   name: string;
 
+  value = false;
 
   public images1 = [];
   public images2 = [];
@@ -26,6 +27,7 @@ export class BodyComponent implements OnInit {
     this.images2 = this.data.getdatas();
     this.button = this.data.getbutton();
     this.radiobtn = this.data.radio();
+
 
   }
   openDialog(): void {

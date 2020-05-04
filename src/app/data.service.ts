@@ -90,9 +90,9 @@ export class DataService {
 
   public radio() {
     return [
-      { text: 'Return', state: 'true' },
-      { text: 'One-Way', state: 'false' },
-      { text: 'Multi-city', state: 'false' },
+      { text: 'Return', state: true },
+      { text: 'One-Way', state: false },
+      { text: 'Multi-city', state: false },
     ];
   }
 

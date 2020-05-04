@@ -26,6 +26,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaymentComponent } from './payment/payment.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+// import { MbscModule } from '@mobiscroll/angular';
+
 
 
 
@@ -54,7 +57,9 @@ import { PaymentComponent } from './payment/payment.component';
     ReactiveFormsModule,
     MatGridListModule,
     MatDialogModule,
-
+    // MbscModule,
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

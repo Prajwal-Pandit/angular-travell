@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormControl } from '@angular/forms';
 import { DataService } from '../data.service';
 import { PaymentserviceService } from '../paymentservice.service'
 
@@ -7,10 +6,21 @@ import { PaymentserviceService } from '../paymentservice.service'
   selector: 'app-payment',
   templateUrl: './payment.component.html',
   styleUrls: ['./payment.component.scss'],
+  // providers: [
+  //   {
+  //     provide: DateAdapter,
+  //     useClass: MomentDateAdapter,
+  //     deps: [MAT_DATE_LOCALE, MAT_MOMENT_DATE_ADAPTER_OPTIONS]
+  //   },
+
+  //   { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
+  // ],
 
 })
 export class PaymentComponent implements OnInit {
   @Input() deviceXs: boolean;
+
+  // date = new FormControl(moment());
 
   public countries = [];
   public cards = [];
@@ -21,6 +31,7 @@ export class PaymentComponent implements OnInit {
     this.countries = this.pay.getCountry();
     this.cards = this.pay.getcard();
   }
+
 
 
   ngOnInit() { }

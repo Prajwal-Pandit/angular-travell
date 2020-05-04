@@ -15,8 +15,8 @@
         <div class="container"  fxFlex.xs="90%">
           <form>
             <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
-              <mat-radio-group *ngFor = "let rad of radiobtn" >
-                <mat-radio-button checked={{rad.state}} color="warn">{{rad.text}}</mat-radio-button>
+              <mat-radio-group aria-label="Select an option" *ngFor="let rad of radiobtn">
+                <mat-radio-button checked={{rad.state}} value="1">{{rad.text}}</mat-radio-button>
               </mat-radio-group>
               <span class="flex" *ngIf = "!deviceXs"></span>
               <button mat-icon-button color="warn" *ngIf = "!deviceXs"><mat-icon>place</mat-icon></button>
@@ -106,9 +106,9 @@
       <br>
         <form>
           <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
-            <mat-radio-group *ngFor = "let rad of radiobtn" >
-              <mat-radio-button checked={{rad.state}} color="warn">{{rad.text}}</mat-radio-button>
-            </mat-radio-group>
+           <mat-radio-group aria-label="Select an option" *ngFor="let rad of radiobtn">
+                <mat-radio-button checked={{rad.state}} value="1">{{rad.text}}</mat-radio-button>
+              </mat-radio-group>
             <span class="flex" *ngIf = "!deviceXs"></span>
             <button mat-icon-button color="warn" *ngIf = "!deviceXs"><mat-icon>place</mat-icon></button>
           </div>
