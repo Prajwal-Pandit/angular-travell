@@ -13,7 +13,8 @@ p {
 
 .container {
   margin: 8px 16px;
-  min-height: 100%;
+  max-height: 100%;
+  background-color: transparent;
 }
 mat-radio-group {
   padding-left: 10px;

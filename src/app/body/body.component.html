@@ -1,5 +1,5 @@
 <br>
-<div fxLayout="row" fxLayout.xs="row" fxLayoutGap="5px" fxLayoutWrap>
+<div fxLayout="row" fxLayout.xs="row" fxLayoutGap="5px">
     <button class="button1" mat-flat-button color="warn" *ngFor = "let btn of button">
       <mat-icon>{{btn.icon}}</mat-icon> {{btn.text}} 
     </button>
@@ -7,7 +7,7 @@
 
 <div fxLayout="column" fxLayout.xs="column" fxLayoutGap = "20px" fxLayoutWrap fxLayoutAlign="center">
 
-  <div class="mainImg" *ngIf = "!deviceXs" fxLayout="column" fxLayout.xs="column" fxLayoutGap = "20px"> 
+  <div class="mainImg" *ngIf = "!deviceXs" fxLayout="column" fxLayout.xs="column" fxLayoutGap = "20px" fxLayoutAlign="center"> 
     <b><strong><p class = "decorate1" > Where to Next!!? </p></strong></b> 
 
     <div fxLayout="column" fxLayoutGap="10px" >
@@ -16,7 +16,7 @@
           <form>
             <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
               <mat-radio-group aria-label="Select an option" *ngFor="let rad of radiobtn">
-                <mat-radio-button checked={{rad.state}} value="1">{{rad.text}}</mat-radio-button>
+                <mat-radio-button color="warn" checked={{rad.state}} value={{rad.value}}>{{rad.text}}</mat-radio-button>
               </mat-radio-group>
               <span class="flex" *ngIf = "!deviceXs"></span>
               <button mat-icon-button color="warn" *ngIf = "!deviceXs"><mat-icon>place</mat-icon></button>
@@ -88,17 +88,21 @@
                 </mat-form-field>
               </div>
             </div>
-            <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
+            <div fxLayout="row" fxLayout.xs="column" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
+              <div>
               <mat-checkbox>Direct Flights Only</mat-checkbox>
+              </div>
               <span class="flex" *ngIf = "!deviceXs"></span>
-              <button class="marge" mat-flat-button color="warn"><mat-icon>search</mat-icon>Search Flights</button>
+              <div class="marge">
+              <button mat-flat-button color="warn"><mat-icon>search</mat-icon>Search Flights</button>
+              </div>
             </div>
           </form>
         </div>
       </div>
     </div>
   </div>
-    
+  
   <!--mobile view-->
   <div class="mobile" fxLayout="column" *ngIf = "deviceXs" fxLayoutGap="10px" fxLayout.xs="column" fxLayoutGap = "20px" >
     <div fxLayout="row" fxLayoutGap="8px" fxLayout.xs="column"  fxLayoutAlign="center center">
@@ -190,6 +194,40 @@
   </div>
   
 
+  <div class="map"  fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center">   
+    <strong><p class = "decorate2" > Be inspired </p></strong> 
+    <p>See the whole world at a glance with our flight price map</p> 
+    <div fxLayoutAlign="center">
+      <div class="size" fxFlex.xs="100%" >
+        <!--<agm-map [latitude]="latitude" [longitude]="longitude" [scrollwheel]="false" [zoom]="zoom">
+          <agm-marker [latitude]="latitude" [longitude]="longitude"></agm-marker>
+        </agm-map>-->
+       <agm-map 
+          [latitude]="lat"
+          [longitude]="lng"
+          [zoom]="zoom"
+          [disableDefaultUI]="true"
+          [zoomControl]="false"
+          [scrollwheel]="false">
+
+          <agm-marker 
+              *ngFor="let m of markers; let i = index"
+              (markerClick)="clickedMarker(m.label, i)"
+              [latitude]="m.lat"
+              [longitude]="m.lng"
+              [label]="m.label" 
+              (dragEnd)="markerDragEnd(m, $event)">
+              
+            <!--<agm-info-window>
+              <strong>InfoWindow content</strong>
+            </agm-info-window>-->
+            
+          </agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+
   <div class="gap">
     <p class = "decorate2">Plan your perfect trip</p>
     <p>Search Flights, Hotels & Car Hire to our most popular destinations</p>
@@ -199,7 +237,7 @@
       <div fxFlex="15%" fxFlex.xs="100%"  class="board" *ngFor="let image1 of images1">
         <img class="img" src={{image1.image}}>
         <p class="decorate2"> {{image1.name}} </p>
-          <div fxLayout="row" fxLayoutGap = "3px" fxLayout.xs="row" >
+        <div fxLayout="row" style="margin:8px" fxLayoutGap = "5px" fxLayout.xs="row" >
           <button mat-icon-button color="warn" *ngFor = "let btn of button"><a href="#"> {{btn.text}} </a></button>
         </div>
       </div>
@@ -208,7 +246,7 @@
       <div fxFlex="15%" fxFlex.xs="100%" class="board" *ngFor="let image2 of images2">
         <img class="img" src={{image2.image}}>
         <p class="decorate2"> {{image2.name}} </p>
-        <div fxLayout="row" fxLayoutGap = "3px" fxLayout.xs="row">
+        <div fxLayout="row" style="margin:8px" fxLayoutGap = "5px" fxLayout.xs="row">
           <button mat-icon-button color="warn" *ngFor = "let btn of button"><a href = "#"> {{btn.text}} </a></button>
         </div>
       </div>
@@ -221,4 +259,94 @@
 <button mat-stroked-button (click)='openDialog()' color="warn">payment</button>
 
 
+<!--footer-->
 
+<div class ="footer" fxLayout="row" *ngIf="!deviceXs" fxLayoutAlign="center">
+  <div fxLayout="row" class="adjust" fxLayoutAlign="center" fxLayoutGap="200px">
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Explore</p>
+      <a href="#"><p class="decorate2">Cities</p></a>
+      <a href="#"><p class="decorate2">City Break</p></a>
+      <a href="#"><p class="decorate2">Airport</p></a>
+      <a href="#"><p class="decorate2">Countries/ Regions</p></a>
+      <a href="#"><p class="decorate2">Airlines</p></a>
+      <a href="#"><p class="decorate2">Flights</p></a>
+      <a href="#"><p class="decorate2">Hotels</p></a>
+      <a href="#"><p class="decorate2">Car-Hire</p></a>
+      <a href="#"><p class="decorate2">App</p></a>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Partners</p>
+      <a href="#"><p class="decorate2">Work with us</p></a>
+      <a href="#"><p class="decorate2">Advertise with us</p></a>
+      <a href="#"><p class="decorate2">Travel Insight</p></a>
+      <a href="#"><p class="decorate2">Affiliates</p></a>
+      <a href="#"><p class="decorate2">Travel APIs</p></a>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Company</p>
+      <a href="#"><p class="decorate2">About Us</p></a>
+      <a href="#"><p class="decorate2">Why Travel?</p></a>
+      <a href="#"><p class="decorate2">Media</p></a>
+      <a href="#"><p class="decorate2">Sustainibility</p></a>
+      <a href="#"><p class="decorate2">Brand Story</p></a>
+      <a href="#"><p class="decorate2">Company Details</p></a>
+      <a href="#"><p class="decorate2">Jobs</p></a>
+      <a href="#"><p class="decorate2">Travel features & news</p></a>
+      <a href="#"><p class="decorate2">Cookie policy</p></a>
+      <a href="#"><p class="decorate2">Privacy policy</p></a>
+      <a href="#"><p class="decorate2">Terms of service</p></a>     
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Help</p>
+      <a href="#"><p class="decorate2">Help</p></a>
+      <a href="#"><p class="decorate2">Privacy setting</p></a>
+      <a href="#"><p class="decorate2">Security</p></a>
+    </div>
+  </div>
+</div>
+
+<div class ="footer" fxLayout="row" *ngIf="deviceXs" fxLayoutAlign="center">
+  <div fxLayout="column" class="adjust">
+    <div fxLayout="column">
+      <p class="decorate3">Explore</p>
+      <a href="#"><p class="decorate2">Cities</p></a>
+      <a href="#"><p class="decorate2">City Break</p></a>
+      <a href="#"><p class="decorate2">Airport</p></a>
+      <a href="#"><p class="decorate2">Countries/ Regions</p></a>
+      <a href="#"><p class="decorate2">Airlines</p></a>
+      <a href="#"><p class="decorate2">Flights</p></a>
+      <a href="#"><p class="decorate2">Hotels</p></a>
+      <a href="#"><p class="decorate2">Car-Hire</p></a>
+      <a href="#"><p class="decorate2">App</p></a>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Partners</p>
+      <a href="#"><p class="decorate2">Work with us</p></a>
+      <a href="#"><p class="decorate2">Advertise with us</p></a>
+      <a href="#"><p class="decorate2">Travel Insight</p></a>
+      <a href="#"><p class="decorate2">Affiliates</p></a>
+      <a href="#"><p class="decorate2">Travel APIs</p></a>
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Company</p>
+      <a href="#"><p class="decorate2">About Us</p></a>
+      <a href="#"><p class="decorate2">Why Travel?</p></a>
+      <a href="#"><p class="decorate2">Media</p></a>
+      <a href="#"><p class="decorate2">Sustainibility</p></a>
+      <a href="#"><p class="decorate2">Brand Story</p></a>
+      <a href="#"><p class="decorate2">Company Details</p></a>
+      <a href="#"><p class="decorate2">Jobs</p></a>
+      <a href="#"><p class="decorate2">Travel features & news</p></a>
+      <a href="#"><p class="decorate2">Cookie policy</p></a>
+      <a href="#"><p class="decorate2">Privacy policy</p></a>
+      <a href="#"><p class="decorate2">Terms of service</p></a>     
+    </div>
+    <div fxLayout="column" fxLayoutAlign="center">
+      <p class="decorate3">Help</p>
+      <a href="#"><p class="decorate2">Help</p></a>
+      <a href="#"><p class="decorate2">Privacy setting</p></a>
+      <a href="#"><p class="decorate2">Security</p></a>
+    </div>
+  </div>
+</div>

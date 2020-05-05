@@ -27,8 +27,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDialogModule } from '@angular/material/dialog';
 import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
-// import { MbscModule } from '@mobiscroll/angular';
-
+import { AgmCoreModule } from '@agm/core';
+import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 
 
 
@@ -57,9 +57,16 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     ReactiveFormsModule,
     MatGridListModule,
     MatDialogModule,
-    // MbscModule,
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    MatGoogleMapsAutocompleteModule,
+    AgmCoreModule.forRoot({
+      // please get your own API key here:
+      // https://developers.google.com/maps/documentation/javascript/get-api-key?hl=en
+      apiKey: 'AIzaSyAYFYkvU55crLtL2Hzn7VI_8G3jCs00IlQ',
+      libraries: ['places']
+    }),
+    AgmCoreModule.forRoot()
   ],
   providers: [DataService],
   bootstrap: [AppComponent],

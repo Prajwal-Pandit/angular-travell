@@ -90,9 +90,42 @@ export class DataService {
 
   public radio() {
     return [
-      { text: 'Return', state: true },
-      { text: 'One-Way', state: false },
-      { text: 'Multi-city', state: false },
+      { text: 'Return', state: true, value: "1" },
+      { text: 'One-Way', state: false, value: "2" },
+      { text: 'Multi-city', state: false, value: "3" },
+    ];
+  }
+
+  // public footer() {
+  //   return [
+  //     {
+  //       header: 'Explore', p: "Cities, City Breaks,Airports,Countries/Regions,Airlines,Flights,Hotels,Car-Hire,App"
+  //     },
+  //     {
+  //       header: 'Partners', p: "'Work with us', 'Advertise with us','Travel Insights','Affiliates','Travel APIs'"
+  //     },
+  //     {
+  //       header: 'Company', p: "'About us','Why Travel','Media','Our People','Sustainability','Brand story','Company Details','Jobs','Travel Features & News','Cookis Policy','Privacy Policy','Terms of Service'"
+  //     },
+  //     {
+  //       header: 'Help', p: "'Help','Privacy Setting',Security'"
+  //     }
+  //   ]
+  // }
+
+  public footer() {
+    return [
+
+      'Cities', 'City Breaks', 'Airports', 'Countries/Regions', 'Airlines', 'Flights', 'Hotels', 'Car-Hire', 'App'
+      // {
+      //   'Work with us', 'Advertise with us','Travel Insights','Affiliates','Travel APIs'
+      // },
+      // {
+      //  'About us','Why Travel','Media','Our People','Sustainability','Brand story','Company Details','Jobs','Travel Features & News','Cookis Policy','Privacy Policy','Terms of Service'
+      // },
+      // {
+      //  'Help','Privacy Setting',Security'
+      // }
     ];
   }
 
