@@ -35,7 +35,7 @@ p {
 
 .map {
   width: 100%;
-  height: 600px;
+  height: 500px;
   background-repeat: no-repeat;
   background-size: cover;
   background-size: 100% 100%;
@@ -50,7 +50,17 @@ p {
   background-size: 100% 100%;
   margin-top: 30px;
   color: #ffffff;
-  max-height: 1000px;
+}
+
+.footer1 {
+  width: 100%;
+  height: 1110px;
+  background-repeat: no-repeat;
+  background-color: #5e5858;
+  background-size: cover;
+  background-size: 100% 100%;
+  margin-top: 30px;
+  color: #ffffff;
 }
 
 .adjust {
@@ -92,9 +102,10 @@ p {
 }
 
 .container {
-  background-color: rgb(242, 231, 248);
+  background-color: #ffffff;
   margin: 8px 16px;
   min-height: 100%;
+  border-radius: 5px;
 }
 mat-radio-group {
   padding-left: 10px;
@@ -103,7 +114,7 @@ mat-radio-group {
   margin: 8px;
 }
 .gap {
-  margin: 35px;
+  margin: 30px;
 }
 .mobile {
   width: 100%;
@@ -129,4 +140,50 @@ agm-map {
 .autocomplete-container {
   padding: 1rem 0 1rem 0;
   width: 50%;
+}
+
+.arrow {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.arrow span {
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-bottom: 5px solid #06a8ff;
+  border-right: 5px solid #f44336;
+  transform: rotate(45deg);
+  margin: -10px;
+  animation: animate 2s infinite;
+}
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+@keyframes animate {
+  0% {
+    opacity: 0;
+    transform: rotate(45deg) translate(-20px, -20px);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(45deg) translate(20px, 20px);
+  }
+}
+
+.fs-Logo {
+  width: 150px;
+  height: 150px;
+  fill: red;
+}
+
+.mat-icon {
+  fill: red;
 }

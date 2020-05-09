@@ -15,8 +15,12 @@
         <div class="container"  fxFlex.xs="90%">
           <form>
             <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
-              <mat-radio-group aria-label="Select an option" *ngFor="let rad of radiobtn">
-                <mat-radio-button color="warn" checked={{rad.state}} value={{rad.value}}>{{rad.text}}</mat-radio-button>
+              <mat-radio-group
+                aria-labelledby="example-radio-group-label"
+                name="favoriteSeason">
+                <mat-radio-button *ngFor="let radio of radiobtn" [checked]="radio.state" [value]="radio.value">
+                  {{radio.text}}
+                </mat-radio-button>
               </mat-radio-group>
               <span class="flex" *ngIf = "!deviceXs"></span>
               <button mat-icon-button color="warn" *ngIf = "!deviceXs"><mat-icon>place</mat-icon></button>
@@ -50,7 +54,7 @@
                 </mat-form-field>
               </div>
               <div fxLayout="column" fxLayoutGap="8px">
-                 <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
                     <mat-label>Return</mat-label>
                     <input matInput [matDatepicker]="picker1">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -102,6 +106,8 @@
       </div>
     </div>
   </div>
+
+  
   
   <!--mobile view-->
   <div class="mobile" fxLayout="column" *ngIf = "deviceXs" fxLayoutGap="10px" fxLayout.xs="column" fxLayoutGap = "20px" >
@@ -183,16 +189,21 @@
               </mat-form-field>
             </div>
           </div>
-          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
+          <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="15px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
             <mat-checkbox>Direct Flights Only</mat-checkbox>
-            <span class="flex" *ngIf = "!deviceXs"></span>
             <button class="marge" mat-flat-button color="warn"><mat-icon>search</mat-icon>Search Flights</button>
           </div>
         </form>
       </div>
     </div>
   </div>
-  
+
+  <div class="arrow"  fxLayout="column" fxLayout.xs="column" fxLayoutGap = "5px" fxLayoutAlign="center center">
+                <span></span>
+                <span></span>
+                <span></span>
+  </div>  
+ 
 
   <div class="map"  fxLayout="column" fxLayout.xs="column" fxLayoutAlign="center">   
     <strong><p class = "decorate2" > Be inspired </p></strong> 
@@ -228,6 +239,7 @@
     </div>
   </div>
 
+
   <div class="gap">
     <p class = "decorate2">Plan your perfect trip</p>
     <p>Search Flights, Hotels & Car Hire to our most popular destinations</p>
@@ -255,9 +267,7 @@
 </div>
 
 
-
 <button mat-stroked-button (click)='openDialog()' color="warn">payment</button>
-
 
 <!--footer-->
 
@@ -306,8 +316,8 @@
   </div>
 </div>
 
-<div class ="footer" fxLayout="row" *ngIf="deviceXs" fxLayoutAlign="center">
-  <div fxLayout="column" class="adjust">
+<div class ="footer1" *ngIf="deviceXs" fxLayoutAlign="center">
+  <div fxLayout="column" class="adjust" fxLayoutGap="20px">
     <div fxLayout="column">
       <p class="decorate3">Explore</p>
       <a href="#"><p class="decorate2">Cities</p></a>

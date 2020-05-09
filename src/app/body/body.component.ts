@@ -1,10 +1,20 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { PaymentComponent } from '../payment/payment.component';
-import PlaceResult = google.maps.places.PlaceResult;
 import { MouseEvent } from '@agm/core';
+import { DomSanitizer } from "@angular/platform-browser";
+import { MatIconRegistry } from '@angular/material/icon';
 
+
+const googleLogoURL =
+  "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
+
+const fbLogoURL =
+  "https://image.flaticon.com/icons/svg/20/20673.svg";
+
+const eLogoURL =
+  "https://image.flaticon.com/icons/svg/2089/2089181.svg";
 
 @Component({
   selector: 'app-body',
@@ -14,6 +24,9 @@ import { MouseEvent } from '@agm/core';
 })
 export class BodyComponent implements OnInit {
   @Input() deviceXs: boolean;
+  checkboxValue;
+  favoriteSeason: string;
+  //seasons:;
 
   zoom: number = 3;
 
@@ -72,12 +85,26 @@ export class BodyComponent implements OnInit {
   public radiobtn = [];
   public foot = [];
 
-  constructor(public data: DataService, public dialog: MatDialog) {
+  constructor(public data: DataService, public dialog: MatDialog, private matIconRegistry: MatIconRegistry,
+    private domSanitizer: DomSanitizer) {
     this.images1 = this.data.getdataf();
     this.images2 = this.data.getdatas();
     this.button = this.data.getbutton();
     this.radiobtn = this.data.radio();
     this.foot = this.data.footer();
+
+
+    this.matIconRegistry.addSvgIcon(
+      "glogo",
+      this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
+
+    this.matIconRegistry.addSvgIcon(
+      "fblogo",
+      this.domSanitizer.bypassSecurityTrustResourceUrl(fbLogoURL));
+
+    this.matIconRegistry.addSvgIcon(
+      "elogo",
+      this.domSanitizer.bypassSecurityTrustResourceUrl(eLogoURL));
   }
 
 
@@ -86,11 +113,14 @@ export class BodyComponent implements OnInit {
 
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       console.log('The dialog was closed');
     });
   }
-  ngOnInit() { }
+  ngOnInit() { 
+    let index = this.radiobtn.findIndex(ele => ele.state = true);
+    this.favoriteSeason = this.radiobtn[index].value;
+  }
 
 }
 interface marker {

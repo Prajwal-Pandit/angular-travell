@@ -9,6 +9,10 @@ export class PaymentserviceService {
   public getCountry() {
     return [
       {
+        code: 'NP',
+        name: 'Nepal'
+      },
+      {
         code: 'AF',
         name: 'Afghanistan'
       }, {
@@ -473,9 +477,6 @@ export class PaymentserviceService {
       }, {
         code: 'NR',
         name: 'Nauru'
-      }, {
-        code: 'NP',
-        name: 'Nepal'
       }, {
         code: 'NL',
         name: 'Netherlands'

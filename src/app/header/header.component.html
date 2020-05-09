@@ -8,14 +8,14 @@
     </div>
     <div>
       <div *ngIf= "!deviceXs" fxLayoutGap = "5px">
-          <button mat-flat-button>English(UK)/Nepal(NPR)</button>
-          <button mat-flat-button >Log In</button>
+          <button mat-flat-button (click)='openlang()'>English(UK)/Nepal(NPR)</button>
+          <button mat-flat-button (click)='openlogin()'>Log In</button>
         </div>
     </div>  
   </mat-toolbar-row>
 
   <mat-toolbar-row *ngIf="deviceXs"  fxLayoutAlign = "space-between center">
-    <button mat-flat-button >English(UK)/Nepal(NPR)</button>
-    <button mat-flat-button >Log In</button>
+    <button mat-flat-button (click)='openlang()'>English(UK)/Nepal(NPR)</button>
+    <button mat-flat-button (click)='openlogin()'>Log In</button>
   </mat-toolbar-row>
 </mat-toolbar>

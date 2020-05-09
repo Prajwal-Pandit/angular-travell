@@ -29,11 +29,14 @@ import { PaymentComponent } from './payment/payment.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
+import { LoginComponent } from './login/login.component';
+import { LangComponent } from './lang/lang.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, BodyComponent, PaymentComponent],
+  declarations: [AppComponent, HeaderComponent, BodyComponent, PaymentComponent, LoginComponent, LangComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -66,7 +69,8 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
       apiKey: 'AIzaSyAYFYkvU55crLtL2Hzn7VI_8G3jCs00IlQ',
       libraries: ['places']
     }),
-    AgmCoreModule.forRoot()
+    AgmCoreModule.forRoot(),
+    NgbModule
   ],
   providers: [DataService],
   bootstrap: [AppComponent],
