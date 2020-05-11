@@ -22,8 +22,7 @@
   height: unset !important;
 }
 .intro-2 {
-  background: url("https://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")
-    no-repeat center center;
+  background: url("https://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")no-repeat center center;
   background-size: cover;
 }
 .view {
@@ -41,11 +40,7 @@
   }
 }
 .rgba-gradient .full-bg-img {
-  background: linear-gradient(
-    45deg,
-    rgba(83, 125, 210, 0.4),
-    rgba(178, 30, 123, 0.4) 100%
-  );
+  background: linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
 }
 .full-bg-img {
   height: 100%;
