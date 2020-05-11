@@ -20,18 +20,28 @@
   </mat-toolbar-row>
 </mat-toolbar>-->
 <header class="intro-header">
-    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" [containerInside]="true">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <mdb-navbar-brand>
-            <a class="logo navbar-brand" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong> Travel</strong></a>
+            <a class="logo navbar-brand" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;color:#ff4444"> Travel</strong></a>
         </mdb-navbar-brand>
         <links>
-            <ul class="mr-auto"></ul>
-            <ul class="navbar-nav">
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</button>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active waves-light" mdbWavesEffect>
+                <a class="nav-link"><mdb-icon fas icon="plane"></mdb-icon> Flights <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item waves-light" mdbWavesEffect>
-              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
+                <a class="nav-link"><mdb-icon fas icon="hotel"></mdb-icon> Hotels</a>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
+            </li>
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item waves-light flex-center" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</button>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+              <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
             </li>
         </ul>
         </links>
@@ -94,21 +104,27 @@
                       <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
                     </div>
                   </div>
-                   <div class="form-row">
-                   <div class="form-group col-md-12 text-center">
-                  <div class="dropdown" mdbDropdown>
-                  <button mdbDropdownToggle mdbBtn class="dropdown-toggle waves-light" type="button" mdbWavesEffect>
-                    Dropdown primary
-                  </button>
-                  <div class="dropdown-menu dropdown-primary">
-                    <a class="dropdown-item" href="#">Action</a>
-                    <a class="dropdown-item" href="#">Another action</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <label>Cabin Class</label>
+                      <select class="browser-default custom-select">
+                        <option value="economy">Economy</option>
+                        <option value="premium">Premium</option>
+                        <option value="business">Business Class</option>
+                        <option value="first">First Class</option>
+                      </select>
+                    </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
+                    </div>
                   </div>
+                  <div class="row">
+                    <div class="col-md-12 text-center">
+                      <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search</button>
+                    </div>
                   </div>
-                </div>
                 </mdb-card-body>
               </mdb-card>
               <!--/.Form-->

@@ -17,6 +17,8 @@ export class HeaderComponent implements OnInit {
   bsValue = new Date();
   maxDate = new Date();
 
+  optionsSelect: Array<any>;
+
   // openlogin(): void {
   //   let dialogRef = this.dialog.open(LoginComponent, {
 
@@ -37,9 +39,9 @@ export class HeaderComponent implements OnInit {
   //   });
   // }
 
-  constructor() { 
+  constructor() {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
-    
+
   }
 
   ngOnInit() {
@@ -47,6 +49,12 @@ export class HeaderComponent implements OnInit {
       modalFormElegantEmail: new FormControl('', Validators.email),
       modalFormElegantPassword: new FormControl('', Validators.required)
     });
+
+    this.optionsSelect = [
+      { value: '1', label: 'Option 1' },
+      { value: '2', label: 'Option 2' },
+      { value: '3', label: 'Option 3' },
+    ];
   }
 
   get modalFormElegantEmail() {
