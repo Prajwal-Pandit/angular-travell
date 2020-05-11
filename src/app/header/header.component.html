@@ -1,4 +1,4 @@
-<mat-toolbar>  
+<!--<mat-toolbar>  
   <mat-toolbar-row fxLayoutAlign = "space-between center">
     <div fxLayout="row">
         <button mat-icon-button class = "trans" >
@@ -18,4 +18,180 @@
     <button mat-flat-button (click)='openlang()'>English(UK)/Nepal(NPR)</button>
     <button mat-flat-button (click)='openlogin()'>Log In</button>
   </mat-toolbar-row>
-</mat-toolbar>
+</mat-toolbar>-->
+<header class="intro-header">
+    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar" [containerInside]="true">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong> Travel</strong></a>
+        </mdb-navbar-brand>
+        <links>
+            <ul class="mr-auto"></ul>
+            <ul class="navbar-nav">
+            <li class="nav-item waves-light" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</button>
+            </li>
+            <li class="nav-item waves-light" mdbWavesEffect>
+              <button type="button" mdbBtn color="default" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
+            </li>
+        </ul>
+        </links>
+    </mdb-navbar>
+
+    <div class="view intro-2">
+      <!-- Mask & flexbox options-->
+      <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+        <!-- Content -->
+        <div class="container">
+          <!--Grid row-->
+          <div class="row mt-5 flex-center">
+            <!--Grid column-->
+            <div class="col-md-6 col-xl-5 mb-4">
+              <!--Form-->
+              <mdb-card class="wow fadeInRight" data-wow-delay="0.3s">
+                <mdb-card-body>
+                  <!--Body-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" [checked]="true" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" mdbInput>
+                    <label class="custom-control-label" for="defaultInline1">Return</label>
+                  </div>
+
+                  <!-- Default inline 2-->
+                  <div class="custom-control custom-radio custom-control-inline">
+                    <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample" mdbInput>
+                    <label class="custom-control-label" for="defaultInline2">One-Way</label>
+                  </div>
+
+                  <!-- Default inline 3-->
+                  <div class="custom-control custom-radio custom-control-inline mr-auto">
+                    <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" mdbInput>
+                    <label class="custom-control-label" for="defaultInline3">Multi-City</label>
+                  </div>
+
+                  <div class="form-row">
+                    <!-- Default input -->
+                    <div class="form-group col-md-6 text-center">
+                      <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
+                      <input mdbInput type="text" class="form-control">
+                      <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                    </div>
+                    <!-- Default input -->
+                    <div class="form-group col-md-6 text-center">
+                      <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
+                      <input mdbInput type="text" class="form-control">
+                      <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <!-- Default input -->
+                    <div class="form-group col-md-6 text-center">
+                      <label>Depart</label>
+                      <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                    </div>
+                    <!-- Default input -->
+                    <div class="form-group col-md-6 text-center">
+                      <label>Return</label>
+                      <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                    </div>
+                  </div>
+                   <div class="form-row">
+                   <div class="form-group col-md-12 text-center">
+                  <div class="dropdown" mdbDropdown>
+                  <button mdbDropdownToggle mdbBtn class="dropdown-toggle waves-light" type="button" mdbWavesEffect>
+                    Dropdown primary
+                  </button>
+                  <div class="dropdown-menu dropdown-primary">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </div>
+                  </div>
+                  </div>
+                </div>
+                </mdb-card-body>
+              </mdb-card>
+              <!--/.Form-->
+            </div>
+            <!--Grid column-->
+          </div>
+          <!--Grid row-->
+        </div>
+        <!-- Content -->
+      </div>
+      <!-- Mask & flexbox options-->
+  </div>
+</header>
+
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <!--Content-->
+    <div class="modal-content form-elegant">
+      <!--Header-->
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+          <strong>Sign in</strong>
+        </h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <!--Body-->
+      <div class="modal-body mx-4">
+        <!--Body-->
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
+          <label for="Form-email1">Your email</label>
+          <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success *ngIf="modalFormElegantEmail.valid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <label for="Form-pass1">Your password</label>
+          <mdb-error *ngIf="modalFormElegantPassword.invalid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success *ngIf="modalFormElegantPassword.valid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
+            Input valid
+          </mdb-success>
+          <p class="font-small blue-text d-flex justify-content-end">Forgot
+            <a href="#" class="blue-text ml-1"> Password?</a>
+          </p>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign in
+          </button>
+        </div>
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+          <!--Facebook-->
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="google" class="text-center"></mdb-icon>
+          </button>
+          <!--Twitter-->
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="facebook-f"></mdb-icon>
+          </button>
+          <!--Google +-->
+          <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon far icon="envelope"></mdb-icon>
+          </button>
+        </div>
+      </div>
+      <!--Footer-->
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Not a member?
+          <a href="src/app/payment/payment.component.html" class="blue-text ml-1"> Sign Up</a>
+        </p>
+      </div>
+    </div>
+    <!--/.Content-->
+  </div>
+</div>

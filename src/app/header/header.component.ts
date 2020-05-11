@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 import { MatDialog } from '@angular/material/dialog';
 import { LangComponent } from '../lang/lang.component';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+
 
 
 @Component({
@@ -9,29 +11,51 @@ import { LangComponent } from '../lang/lang.component';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
-  @Input() deviceXs: boolean;
+export class HeaderComponent implements OnInit {
+  //@Input() deviceXs: boolean;
+  validatingForm: FormGroup;
+  bsValue = new Date();
+  maxDate = new Date();
 
-  openlogin(): void {
-    let dialogRef = this.dialog.open(LoginComponent, {
+  // openlogin(): void {
+  //   let dialogRef = this.dialog.open(LoginComponent, {
 
-    });
+  //   });
 
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
+  //   dialogRef.afterClosed().subscribe(() => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
+
+  // openlang(): void {
+  //   let dialogRef = this.dialog.open(LangComponent, {
+
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(() => {
+  //     console.log('The dialog was closed');
+  //   });
+  // }
+
+  constructor() { 
+    this.maxDate.setDate(this.maxDate.getDate() + 7);
+    
+  }
+
+  ngOnInit() {
+    this.validatingForm = new FormGroup({
+      modalFormElegantEmail: new FormControl('', Validators.email),
+      modalFormElegantPassword: new FormControl('', Validators.required)
     });
   }
 
-  openlang(): void {
-    let dialogRef = this.dialog.open(LangComponent, {
-
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
+  get modalFormElegantEmail() {
+    return this.validatingForm.get('modalFormElegantEmail');
   }
 
-  constructor(public dialog: MatDialog) { }
+  get modalFormElegantPassword() {
+    return this.validatingForm.get('modalFormElegantPassword');
+  }
 
 }
+

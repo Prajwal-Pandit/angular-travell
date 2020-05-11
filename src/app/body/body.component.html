@@ -14,11 +14,9 @@
       <div fxLayout="row" fxLayoutGap="8px" fxLayout.xs="column"  fxLayoutAlign="center center">
         <div class="container"  fxFlex.xs="90%">
           <form>
-            <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
-              <mat-radio-group
-                aria-labelledby="example-radio-group-label"
-                name="favoriteSeason">
-                <mat-radio-button *ngFor="let radio of radiobtn" [checked]="radio.state" [value]="radio.value">
+            <div fxLayout="row" style="margin:5px" fxLayoutGap="8px" fxLayoutAlign="center center" ngClass.xs="mobileContainer">
+              <mat-radio-group fxLayout="row" fxLayoutGap="5px">
+                <mat-radio-button *ngFor="let radio of radiobtn" color="warn" [checked]="radio.state" [value]="radio.value">
                   {{radio.text}}
                 </mat-radio-button>
               </mat-radio-group>
@@ -27,7 +25,7 @@
             </div>
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
               <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                   <mat-label><mat-icon>flight_takeoff</mat-icon> From</mat-label>
                   <input matInput>
                 </mat-form-field>
@@ -37,7 +35,7 @@
                 <button mat-icon-button color = "warn"><mat-icon>swap_calls</mat-icon></button>
               </div>
               <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%">
+                <mat-form-field appearance="outline" fxFlex="40%">
                   <mat-label><mat-icon>flight_land</mat-icon> To</mat-label>
                   <input matInput>
                 </mat-form-field>
@@ -46,7 +44,7 @@
             </div>
             <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
               <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                     <mat-label>Depart</mat-label>
                     <input matInput [matDatepicker]="picker">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -54,7 +52,7 @@
                 </mat-form-field>
               </div>
               <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                     <mat-label>Return</mat-label>
                     <input matInput [matDatepicker]="picker1">
                     <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -62,14 +60,14 @@
                 </mat-form-field>
               </div>
               <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                   <mat-label>CabinClass & Travellers</mat-label>
                   <mat-select>
                     <div fxLayout="column" >
                       <mat-option>
-                        <mat-form-field>
+                        <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                           <mat-label>Economy</mat-label>
-                          <mat-select matNativeControl>
+                          <mat-select>
                             <mat-option value="economy">Economy</mat-option>
                             <mat-option value="premium">Premium</mat-option>
                             <mat-option value="business">Business Class</mat-option>
@@ -79,10 +77,10 @@
                       </mat-option>
                       <mat-option>
                         <div fxLayout="row" fxLayoutGap="8px">
-                          <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                          <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                             <input type = "number" matInput placeholder="Adults">
                           </mat-form-field>
-                          <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                          <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                             <input type = "number" matInput placeholder="Child">
                           </mat-form-field>
                         </div>
@@ -124,7 +122,7 @@
           </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
             <div fxLayout="column" fxLayoutGap="8px">
-              <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                 <mat-label><mat-icon>flight_takeoff</mat-icon> From</mat-label>
                 <input matInput>
               </mat-form-field>
@@ -134,7 +132,7 @@
               <button mat-icon-button color = "warn"><mat-icon>swap_calls</mat-icon></button>
             </div>
             <div fxLayout="column" fxLayoutGap="8px">
-              <mat-form-field appearance="fill" fxFlex="40%">
+              <mat-form-field appearance="outline" fxFlex="40%">
                 <mat-label><mat-icon>flight_land</mat-icon> To</mat-label>
                 <input matInput>
               </mat-form-field>
@@ -143,7 +141,7 @@
             </div>
           <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="10px"  fxLayoutAlign="center" ngClass.xs="mobileContainer">
             <div fxLayout="column" fxLayoutGap="8px">
-              <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                   <mat-label>Depart</mat-label>
                   <input matInput [matDatepicker]="picker">
                   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -151,7 +149,7 @@
               </mat-form-field>
             </div>
             <div fxLayout="column" fxLayoutGap="8px">
-                <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                   <mat-label>Return</mat-label>
                   <input matInput [matDatepicker]="picker1">
                   <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
@@ -159,7 +157,7 @@
               </mat-form-field>
             </div>
             <div fxLayout="column" fxLayoutGap="8px">
-              <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+              <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                 <mat-label>CabinClass & Travellers</mat-label>
                 <mat-select>
                   <div fxLayout="column" >
@@ -176,10 +174,10 @@
                     </mat-option>
                     <mat-option>
                       <div fxLayout="row" fxLayoutGap="8px">
-                        <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                        <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                           <input type = "number" matInput placeholder="Adults">
                         </mat-form-field>
-                        <mat-form-field appearance="fill" fxFlex="40%" fxFlex.xs="100%">
+                        <mat-form-field appearance="outline" fxFlex="40%" fxFlex.xs="100%">
                           <input type = "number" matInput placeholder="Child">
                         </mat-form-field>
                       </div>
@@ -268,6 +266,7 @@
 
 
 <button mat-stroked-button (click)='openDialog()' color="warn">payment</button>
+
 
 <!--footer-->
 
@@ -360,3 +359,4 @@
     </div>
   </div>
 </div>
+

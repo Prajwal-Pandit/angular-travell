@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -32,6 +32,8 @@ import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/go
 import { LoginComponent } from './login/login.component';
 import { LangComponent } from './lang/lang.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 
 
@@ -48,6 +50,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     MatRadioModule,
     MatInputModule,
     MatDatepickerModule,
+    MDBBootstrapModule.forRoot(),
+    BsDatepickerModule.forRoot(),
     MatFormFieldModule,
     MatNativeDateModule,
     MatCheckboxModule,
@@ -72,6 +76,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AgmCoreModule.forRoot(),
     NgbModule
   ],
+  schemas: [NO_ERRORS_SCHEMA],
   providers: [DataService],
   bootstrap: [AppComponent],
 })
