@@ -1,2 +1,19 @@
 
-  
+<div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row mt-5 flex-center text-center">
+            <label style="font-family:verdana;font-size:25px"><strong>Be inspired</strong><br><label style="font-size:15px">See the whole world at a glance with our flight price map</label></label>
+            <agm-map [zoom]="zoom" [zoomControl]="false" [scrollwheel]="false" style="width:100%; height:500px ">
+            <agm-marker *ngFor="let map of maps" [latitude]="map.lat" [longitude]="map.lng" [label]="map.label"></agm-marker>
+        </agm-map>
+        </div>
+    </div>
+</div>
+
+<div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row mt-5 flex-center text-center">
+            
+        </div>
+    </div>
+</div>

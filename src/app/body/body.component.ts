@@ -7,14 +7,14 @@ import { DomSanitizer } from "@angular/platform-browser";
 import { MatIconRegistry } from '@angular/material/icon';
 
 
-const googleLogoURL =
-  "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
+// const googleLogoURL =
+//   "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
 
-const fbLogoURL =
-  "https://image.flaticon.com/icons/svg/20/20673.svg";
+// const fbLogoURL =
+//   "https://image.flaticon.com/icons/svg/20/20673.svg";
 
-const eLogoURL =
-  "https://image.flaticon.com/icons/svg/2089/2089181.svg";
+// const eLogoURL =
+//   "https://image.flaticon.com/icons/svg/2089/2089181.svg";
 
 @Component({
   selector: 'app-body',
@@ -23,28 +23,11 @@ const eLogoURL =
   encapsulation: ViewEncapsulation.None,
 })
 export class BodyComponent implements OnInit {
-  @Input() deviceXs: boolean;
-  checkboxValue;
-  favoriteSeason: string;
-  //seasons:;
 
-  zoom: number = 3;
+  zoom: number = 2;
 
-  // initial center position for the map
-  lat: number = 27.7172;
-  lng: number = 85.3240;
-
-  clickedMarker(label: string, index: number) {
-    console.log(`clicked the marker: ${label || index}`)
-  }
-
-
-  markerDragEnd(m: marker, $event: MouseEvent) {
-    console.log('dragEnd', m, $event);
-  }
-
-  markers: marker[] = [
-    {
+  public maps: any =
+    [{
       lat: 27.7172,
       lng: 85.3240,
       label: 'Kathmandu',
@@ -74,59 +57,70 @@ export class BodyComponent implements OnInit {
       label: 'Singapore',
       draggable: true
     },
-
-  ]
-
+  ];
 
 
-  public images1 = [];
-  public images2 = [];
-  public button = [];
-  public radiobtn = [];
-  public foot = [];
 
-  constructor(public data: DataService, public dialog: MatDialog, private matIconRegistry: MatIconRegistry,
-    private domSanitizer: DomSanitizer) {
-    this.images1 = this.data.getdataf();
-    this.images2 = this.data.getdatas();
-    this.button = this.data.getbutton();
-    this.radiobtn = this.data.radio();
-    this.foot = this.data.footer();
+  
+
+  // ]
+  //const googleLogoURL =
+  //   "https://raw.githubusercontent.com/fireflysemantics/logo/master/Google.svg";
+
+  // const fbLogoURL =
+  //   "https://image.flaticon.com/icons/svg/20/20673.svg";
+
+  // const eLogoURL =
+  //   "https://image.flaticon.com/icons/svg/2089/2089181.svg";
 
 
-    this.matIconRegistry.addSvgIcon(
-      "glogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
+  // public images1 = [];
+  // public images2 = [];
+  // public button = [];
+  // public radiobtn = [];
+  // public foot = [];
 
-    this.matIconRegistry.addSvgIcon(
-      "fblogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(fbLogoURL));
+  constructor() {
+    //   this.images1 = this.data.getdataf();
+    //   this.images2 = this.data.getdatas();
+    //   this.button = this.data.getbutton();
+    //   this.radiobtn = this.data.radio();
+    //   this.foot = this.data.footer();
 
-    this.matIconRegistry.addSvgIcon(
-      "elogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(eLogoURL));
+
+    //   this.matIconRegistry.addSvgIcon(
+    //     "glogo",
+    //     this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
+
+    //   this.matIconRegistry.addSvgIcon(
+    //     "fblogo",
+    //     this.domSanitizer.bypassSecurityTrustResourceUrl(fbLogoURL));
+
+    //   this.matIconRegistry.addSvgIcon(
+    //     "elogo",
+    //     this.domSanitizer.bypassSecurityTrustResourceUrl(eLogoURL));
+    // }
+
+
+    // openDialog(): void {
+    //   let dialogRef = this.dialog.open(PaymentComponent, {
+
+    //   });
+
+    //   dialogRef.afterClosed().subscribe(() => {
+    //     console.log('The dialog was closed');
+    //   });
   }
-
-
-  openDialog(): void {
-    let dialogRef = this.dialog.open(PaymentComponent, {
-
-    });
-
-    dialogRef.afterClosed().subscribe(() => {
-      console.log('The dialog was closed');
-    });
-  }
-  ngOnInit() { 
-    let index = this.radiobtn.findIndex(ele => ele.state = true);
-    this.favoriteSeason = this.radiobtn[index].value;
+  ngOnInit() {
+    // let index = this.radiobtn.findIndex(ele => ele.state = true);
+    // this.favoriteSeason = this.radiobtn[index].value;
   }
 
 }
-interface marker {
-  lat: number;
-  lng: number;
-  label?: string;
-  draggable: boolean;
-}
+// interface marker {
+//   lat: number;
+//   lng: number;
+//   label?: string;
+//   draggable: boolean;
+// }
 

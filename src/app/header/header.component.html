@@ -19,10 +19,11 @@
     <button mat-flat-button (click)='openlogin()'>Log In</button>
   </mat-toolbar-row>
 </mat-toolbar>-->
+
 <header class="intro-header">
-    <mdb-navbar SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
+    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
         <mdb-navbar-brand>
-            <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;color:#ff4444"> Travel</strong></a>
+            <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
         </mdb-navbar-brand>
         <links>
             <ul class="navbar-nav mr-auto">
@@ -47,44 +48,32 @@
         </links>
     </mdb-navbar>
 
-    <div class="view intro-2">
-      <!-- Mask & flexbox options-->
+    <section class="view intro-2">
       <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
-        <!-- Content -->
         <div class="container">
-          <!--Grid row-->
           <div class="row mt-5 flex-center">
-            <!--Grid column-->
             <div class="col-md-6 col-xl-5 mb-4">
-              <!--Form-->
               <mdb-card class="wow fadeInRight" data-wow-delay="0.3s">
                 <mdb-card-body>
-                  <!--Body-->
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" [checked]="true" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" mdbInput>
                     <label class="custom-control-label" for="defaultInline1">Return</label>
                   </div>
-
-                  <!-- Default inline 2-->
                   <div class="custom-control custom-radio custom-control-inline">
                     <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample" mdbInput>
                     <label class="custom-control-label" for="defaultInline2">One-Way</label>
                   </div>
-
-                  <!-- Default inline 3-->
                   <div class="custom-control custom-radio custom-control-inline mr-auto">
                     <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" mdbInput>
                     <label class="custom-control-label" for="defaultInline3">Multi-City</label>
                   </div>
 
                   <div class="form-row">
-                    <!-- Default input -->
                     <div class="form-group col-md-6 text-center">
                       <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
                       <input mdbInput type="text" class="form-control">
                       <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
                     </div>
-                    <!-- Default input -->
                     <div class="form-group col-md-6 text-center">
                       <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
                       <input mdbInput type="text" class="form-control">
@@ -93,12 +82,10 @@
                   </div>
 
                   <div class="form-row">
-                    <!-- Default input -->
                     <div class="form-group col-md-6 text-center">
                       <label>Depart</label>
                       <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
                     </div>
-                    <!-- Default input -->
                     <div class="form-group col-md-6 text-center">
                       <label>Return</label>
                       <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
@@ -127,23 +114,16 @@
                   </div>
                 </mdb-card-body>
               </mdb-card>
-              <!--/.Form-->
             </div>
-            <!--Grid column-->
           </div>
-          <!--Grid row-->
         </div>
-        <!-- Content -->
       </div>
-      <!-- Mask & flexbox options-->
-  </div>
+  </section>
 </header>
 
 <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <!--Content-->
     <div class="modal-content form-elegant">
-      <!--Header-->
       <div class="modal-header text-center">
         <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
           <strong>Sign in</strong>
@@ -152,9 +132,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <!--Body-->
       <div class="modal-body mx-4">
-        <!--Body-->
         <div class="md-form mb-5">
           <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
           <label for="Form-email1">Your email</label>
@@ -187,27 +165,23 @@
         <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
 
         <div class="row my-3 d-flex justify-content-center">
-          <!--Facebook-->
           <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
             <mdb-icon fab icon="google" class="text-center"></mdb-icon>
           </button>
-          <!--Twitter-->
           <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
             <mdb-icon fab icon="facebook-f"></mdb-icon>
           </button>
-          <!--Google +-->
           <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
             <mdb-icon far icon="envelope"></mdb-icon>
           </button>
         </div>
       </div>
-      <!--Footer-->
       <div class="modal-footer mx-5 pt-3 mb-1">
         <p class="font-small grey-text d-flex justify-content-end">Not a member?
           <a href="src/app/payment/payment.component.html" class="blue-text ml-1"> Sign Up</a>
         </p>
       </div>
     </div>
-    <!--/.Content-->
   </div>
 </div>
+
