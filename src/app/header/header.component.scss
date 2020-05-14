@@ -1,30 +1,24 @@
-.navbar {
-  background: transparent;
-}
 
 .intro-header {
   height: unset !important;
 }
 .intro-2 {
-  background: url("https://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")
-    no-repeat center center;
+  background: url("https://mdbootstrap.com/img/Photos/Others/img%20(42).jpg")no-repeat center center;
   background-size: cover;
 }
 .view {
   height: 100vh !important;
 }
-.top-nav-collapse {
-  background-color: #3f51b5 !important;
-}
 .navbar:not(.top-nav-collapse) {
   background: transparent !important;
 }
+@media (max-width: 768px) {
+  .navbar:not(.top-nav-collapse) {
+    background: #3f51b5 !important;
+  }
+}
 .rgba-gradient .full-bg-img {
-  background: linear-gradient(
-    45deg,
-    rgba(83, 125, 210, 0.4),
-    rgba(178, 30, 123, 0.4) 100%
-  );
+  background: linear-gradient(45deg, rgba(83, 125, 210, 0.4), rgba(178, 30, 123, 0.4) 100%);
 }
 .full-bg-img {
   height: 100%;
@@ -43,7 +37,6 @@
 h6 {
   line-height: 1.7;
 }
-
 @media (max-width: 740px) {
   .full-height,
   .full-height body,
@@ -83,4 +76,8 @@ h6 {
 .form-elegant .modal-body,
 .form-elegant .modal-footer {
   font-weight: 400;
+}
+
+a{
+  text-decoration: none;
 }

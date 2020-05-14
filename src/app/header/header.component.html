@@ -1,24 +1,3 @@
-<!--<mat-toolbar>  
-  <mat-toolbar-row fxLayoutAlign = "space-between center">
-    <div fxLayout="row">
-        <button mat-icon-button class = "trans" >
-            <mat-icon>flight_takeoff</mat-icon>
-            <a href="#"><span class="icon">Travel</span></a>
-        </button>
-    </div>
-    <div>
-      <div *ngIf= "!deviceXs" fxLayoutGap = "5px">
-          <button mat-flat-button (click)='openlang()'>English(UK)/Nepal(NPR)</button>
-          <button mat-flat-button (click)='openlogin()'>Log In</button>
-        </div>
-    </div>  
-  </mat-toolbar-row>
-
-  <mat-toolbar-row *ngIf="deviceXs"  fxLayoutAlign = "space-between center">
-    <button mat-flat-button (click)='openlang()'>English(UK)/Nepal(NPR)</button>
-    <button mat-flat-button (click)='openlogin()'>Log In</button>
-  </mat-toolbar-row>
-</mat-toolbar>-->
 
 <header class="intro-header">
     <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
@@ -49,71 +28,136 @@
     </mdb-navbar>
 
     <section class="view intro-2">
-      <div class="mask rgba-purple-light d-flex justify-content-center align-items-center">
-        <div class="container">
-          <div class="row mt-5 flex-center">
-            <div class="col-md-6 col-xl-5 mb-4">
-              <mdb-card class="wow fadeInRight white-text" data-wow-delay="0.3s">
-                <mdb-card-body>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" [checked]="true" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" mdbInput>
-                    <label class="custom-control-label" for="defaultInline1">Return</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample" mdbInput>
-                    <label class="custom-control-label" for="defaultInline2">One-Way</label>
-                  </div>
-                  <div class="custom-control custom-radio custom-control-inline mr-auto">
-                    <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" mdbInput>
-                    <label class="custom-control-label" for="defaultInline3">Multi-City</label>
-                  </div>
+      <div class="mask rgba-black-light full-bg-img">
+        <div class="container flex-center">
+          <div class="d-flex align-items-center content-height w-100">
+            <div class="row pt-5 mt-3 w-200 flex-center">
+              <div class="col-md-6 text-center text-md-left mb-5" *ngIf="!deviceXs">
+                <div class="white-text">
+                  <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Sign up right now !! </h2>
+                  <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                  <h4 class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#" class="pink-text"><mdb-icon fas icon="plane-departure"></mdb-icon> Travel</a> helps travelers by sorting through vast amounts of information to find the best possible travel arrangements. In addition, hotels and specialty travel groups use travel services to promote travel packages with different great offers in flights, hotels and renting the cars.</h4>
+                  
+                </div>
+              </div>
+              
+              <div class="col-md-6 col-xl-5 mb-4 offset-xl-1 ">
+                <mdb-card class="wow fadeInRight white-text" data-wow-delay="0.3s">
+                  <mdb-card-body>
+                  <div class="text-center" *ngIf="!deviceXs">
+                      <h3 class="white-text">
+                        <mdb-icon fas icon="info-circle" class="text-white"></mdb-icon> Booking Details:</h3>
+                      <hr class="hr-light">
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" [checked]="true" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" mdbInput (click)="setradio('return')">
+                      <label class="custom-control-label" for="defaultInline1">Return</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample" mdbInput (click)="setradio('one')">
+                      <label class="custom-control-label" for="defaultInline2">One-Way</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline mr-auto">
+                      <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" mdbInput>
+                      <label class="custom-control-label" for="defaultInline3">Multi-City</label>
+                    </div>
 
-                  <div class="form-row">
-                    <div class="form-group col-md-6 text-center">
-                      <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
-                      <input mdbInput type="text" class="form-control">
-                      <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
-                    </div>
-                    <div class="form-group col-md-6 text-center">
-                      <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
-                      <input mdbInput type="text" class="form-control">
-                      <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
-                    </div>
-                  </div>
+                    <div *ngIf="isSelected('return')">
+                      <div class="form-row" >
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                      </div>
 
-                  <div class="form-row">
-                    <div class="form-group col-md-6 text-center">
-                      <label>Depart</label>
-                      <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Depart</label>
+                          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Return</label>
+                          <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <label>Cabin Class</label>
+                          <select class="browser-default custom-select">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium</option>
+                            <option value="business">Business Class</option>
+                            <option value="first">First Class</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search</button>
+                        </div>
+                      </div>
                     </div>
-                    <div class="form-group col-md-6 text-center">
-                      <label>Return</label>
-                      <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+
+                    <div *ngIf="isSelected('one')">
+                      <div class="form-row" >
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Depart</label>
+                          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Return</label>
+                          <input type="text" [disabled]="true" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <label>Cabin Class</label>
+                          <select class="browser-default custom-select">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium</option>
+                            <option value="business">Business Class</option>
+                            <option value="first">First Class</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search</button>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <label>Cabin Class</label>
-                      <select class="browser-default custom-select">
-                        <option value="economy">Economy</option>
-                        <option value="premium">Premium</option>
-                        <option value="business">Business Class</option>
-                        <option value="first">First Class</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12">
-                      <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
-                    </div>
-                  </div>
-                  <div class="row">
-                    <div class="col-md-12 text-center">
-                      <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search</button>
-                    </div>
-                  </div>
-                </mdb-card-body>
-              </mdb-card>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
             </div>
           </div>
         </div>

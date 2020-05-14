@@ -12,32 +12,12 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  //@Input() deviceXs: boolean;
+  @Input() deviceXs: boolean;
   validatingForm: FormGroup;
   bsValue = new Date();
   maxDate = new Date();
 
   optionsSelect: Array<any>;
-
-  // openlogin(): void {
-  //   let dialogRef = this.dialog.open(LoginComponent, {
-
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(() => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
-
-  // openlang(): void {
-  //   let dialogRef = this.dialog.open(LangComponent, {
-
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(() => {
-  //     console.log('The dialog was closed');
-  //   });
-  // }
 
   constructor() {
     this.maxDate.setDate(this.maxDate.getDate() + 7);
@@ -64,6 +44,22 @@ export class HeaderComponent implements OnInit {
   get modalFormElegantPassword() {
     return this.validatingForm.get('modalFormElegantPassword');
   }
+
+
+  private selectedLink: string = "return";
+  
+  setradio(e: string) {
+    this.selectedLink = e;
+  }
+
+  isSelected(name: string): boolean {
+
+    if (!this.selectedLink) { // if no radio button is selected, always return false so every nothing is shown  
+      return false;
+    }
+
+    return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
+  }   
 
 }
 
