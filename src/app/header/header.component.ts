@@ -24,6 +24,7 @@ export class HeaderComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
     this.validatingForm = new FormGroup({
       modalFormElegantEmail: new FormControl('', Validators.email),
@@ -45,9 +46,9 @@ export class HeaderComponent implements OnInit {
     return this.validatingForm.get('modalFormElegantPassword');
   }
 
-
+  // Radio button shifting
   private selectedLink: string = "return";
-  
+
   setradio(e: string) {
     this.selectedLink = e;
   }
@@ -59,7 +60,28 @@ export class HeaderComponent implements OnInit {
     }
 
     return (this.selectedLink === name); // if current radio button is selected, return true, else return false  
-  }   
+  }
+
+
+  // Flight and hotel shiffting
+  private navi: string = "flight";
+
+  navigate(e: string) {
+    this.navi = e;
+  }
+
+  isnavigating(name: string): boolean {
+
+    if (!this.navi) { // if no radio button is selected, always return false so every nothing is shown  
+      return false;
+    }
+
+    return (this.navi === name); // if current radio button is selected, return true, else return false  
+  }
+
+
+  
+
 
 }
 

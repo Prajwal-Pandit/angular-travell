@@ -34,6 +34,7 @@ import { LangComponent } from './lang/lang.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -74,7 +75,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
       libraries: ['places']
     }),
     AgmCoreModule.forRoot(),
-    NgbModule
+    NgbModule,
+    RouterModule.forRoot([
+      { path: 'lang', component: LangComponent },
+      { path: 'login', component: LoginComponent },
+    ]),  
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [DataService],
