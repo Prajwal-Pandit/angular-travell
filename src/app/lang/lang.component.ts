@@ -16,9 +16,7 @@ export class LangComponent implements OnInit {
 
 
   constructor(public data: DataService,public pay: PaymentserviceService) {
-    this.lang = this.data.getlang();
-    this.countries = this.pay.getCountry();
-    this.currencies = this.data.getCurrency();
+
   }
 
   ngOnInit(): void {

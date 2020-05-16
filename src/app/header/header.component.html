@@ -10,22 +10,30 @@
             <ul class="navbar-nav mr-auto">
               <li class="nav-item active waves-light" mdbWavesEffect>
                 <a class="nav-link" (click)="navigate('flight')"><mdb-icon fas icon="plane"></mdb-icon> Flights </a>
-            </li>
-            <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link" (click)="navigate('hotel')"><mdb-icon fas icon="hotel"></mdb-icon> Hotels</a>
-            </li>
-            <!--<li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
-            </li>-->
+              </li>
+              <li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link" (click)="navigate('hotel')"><mdb-icon fas icon="hotel"></mdb-icon> Hotels</a>
+              </li>
+              <!--<li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
+              </li>-->
             </ul>
             <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item waves-light flex-center" mdbWavesEffect>
+              <li class="nav-item waves-light flex-center" mdbWavesEffect>
                 <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
             </li>
             <!--<li class="nav-item waves-light" mdbWavesEffect>
               <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
             </li>-->
-        </ul>
+            <li class="nav-item dropdown mt-2 ml-2" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+              </div>
+            </li>
+          </ul>
         </links>
     </mdb-navbar>
 
@@ -175,9 +183,9 @@
             <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
         </mdb-navbar-brand>
         <links>
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item waves-light" mdbWavesEffect>
-                <a class="nav-link" (click)="navigate('flight')"><mdb-icon fas icon="plane"></mdb-icon> Flights </a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link" (click)="navigate('flight')"><mdb-icon fas icon="plane"></mdb-icon> Flights </a>
             </li>
             <li class="nav-item active waves-light" mdbWavesEffect>
                 <a class="nav-link" (click)="navigate('hotel')"><mdb-icon fas icon="hotel"></mdb-icon> Hotels <span class="sr-only">(current)</span></a>
@@ -185,15 +193,23 @@
             <!--<li class="nav-item waves-light" mdbWavesEffect>
                 <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
             </li>-->
-            </ul>
-            <ul class="navbar-nav nav-flex-icons">
+          </ul>
+          <ul class="navbar-nav nav-flex-icons">
             <li class="nav-item waves-light flex-center" mdbWavesEffect>
-                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</button>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
             </li>
-            <li class="nav-item waves-light" mdbWavesEffect>
+            <!--<li class="nav-item waves-light" mdbWavesEffect>
               <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
+            </li>-->
+            <li class="nav-item dropdown mt-2 ml-2" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+              </div>
             </li>
-        </ul>
+          </ul>
         </links>
     </mdb-navbar>
 
@@ -266,6 +282,8 @@
   </div>
 </header>
 
+
+<!--Sign-In-->
 <div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content form-elegant">
@@ -331,6 +349,7 @@
 </div>
 
 
+<!--Sign-Up-->
 <div mdbModal #frame1="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content form-elegant">
@@ -344,6 +363,11 @@
       </div>
       <div class="modal-body mx-4">
         <div class="md-form mb-5">
+          <input type="text" class="form-control" mdbInput>
+          <label class="blue-text">Username:</label>
+        </div>
+
+        <div class="md-form mb-5">
           <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
           <label for="Form-email1" class="blue-text">Email ID:</label>
           <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
@@ -354,22 +378,21 @@
           </mdb-success>
         </div>
 
+        <div class="md-form mb-5">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <label for="Form-pass1" class="blue-text">New-Password:</label>
+        </div>
+
         <div class="md-form pb-3">
           <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
-          <label for="Form-pass1" class="blue-text">Password</label>
-          <mdb-error *ngIf="modalFormElegantPassword.invalid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success *ngIf="modalFormElegantPassword.valid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
-            Input valid
-          </mdb-success>
+          <label for="Form-pass1" class="blue-text">Re-enter new-password:</label>
         </div>
 
         <div class="text-center mb-3">
-          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign in
+          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign Up
           </button>
         </div>
-        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign Up with:</p>
 
         <div class="row my-3 d-flex justify-content-center">
           <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
