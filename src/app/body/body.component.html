@@ -1,3 +1,420 @@
+<header class="intro-header">
+  <!--Flights page-->
+  <div *ngIf="isnavigating('flight')">
+    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
+        </mdb-navbar-brand>
+        <links>
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active waves-light" mdbWavesEffect>
+                <a class="nav-link" (click)="navigate('flight')"><mdb-icon fas icon="plane"></mdb-icon> Flights </a>
+              </li>
+              <li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link" (click)="navigate('hotel')"><mdb-icon fas icon="hotel"></mdb-icon> Hotels</a>
+              </li>
+              <!--<li class="nav-item waves-light" mdbWavesEffect>
+                  <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
+              </li>-->
+            </ul>
+            <ul class="navbar-nav nav-flex-icons">
+              <li class="nav-item waves-light flex-center" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
+            </li>
+            <!--<li class="nav-item waves-light" mdbWavesEffect>
+              <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
+            </li>-->
+            <li class="nav-item dropdown mt-2 ml-2" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+              </div>
+            </li>
+          </ul>
+        </links>
+    </mdb-navbar>
+
+    <section class="view intro-2" >
+      <div class="mask rgba-black-light full-bg-img">
+        <div class="container flex-center">
+          <div class="d-flex align-items-center content-height w-100">
+            <div class="row pt-5 mt-3 w-200 flex-center">
+              <div class="col-md-6 text-center text-md-left mb-5" *ngIf="!deviceXs">
+                <div class="white-text">
+                  <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Where to next? !! </h2>
+                  <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                  <h4 class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#" class="pink-text"><strong><mdb-icon fas icon="plane-departure"></mdb-icon> Travel</strong> </a> helps travelers by sorting through vast amounts of information to find the best possible travel arrangements. In addition, hotels and specialty travel groups use travel services to promote travel packages with different great offers in flights and hotels.</h4>
+                  
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-5 mb-4 offset-xl-1 ">
+                <mdb-card class="wow fadeInRight white-text" data-wow-delay="0.3s">
+                  <mdb-card-body>
+                  <div class="text-center" *ngIf="!deviceXs">
+                      <h3 class="white-text">
+                        <mdb-icon fas icon="info-circle" class="text-white"></mdb-icon> Booking Details:</h3>
+                      <hr class="hr-light">
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" [checked]="true" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" mdbInput (click)="setradio('return')">
+                      <label class="custom-control-label" for="defaultInline1">Return</label>
+                    </div>
+                    <div class="custom-control custom-radio custom-control-inline">
+                      <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample" mdbInput (click)="setradio('one')">
+                      <label class="custom-control-label" for="defaultInline2">One-Way</label>
+                    </div>
+                    <!--<div class="custom-control custom-radio custom-control-inline mr-auto">
+                      <input type="radio" class="custom-control-input" id="defaultInline3" name="inlineDefaultRadiosExample" mdbInput>
+                      <label class="custom-control-label" for="defaultInline3">Multi-City</label>
+                    </div>-->
+
+                    <div *ngIf="isSelected('return')">
+                      <div class="form-row" >
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Depart</label>
+                          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Return</label>
+                          <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <label>Cabin Class</label>
+                          <select class="browser-default custom-select">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium</option>
+                            <option value="business">Business Class</option>
+                            <option value="first">First Class</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search flights</button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div *ngIf="isSelected('one')">
+                      <div class="form-row" >
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
+                          <input mdbInput type="text" class="form-control">
+                          <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Depart</label>
+                          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Return</label>
+                          <input type="text" [disabled]="true" placeholder="One-Way" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <label>Cabin Class</label>
+                          <select class="browser-default custom-select">
+                            <option value="economy">Economy</option>
+                            <option value="premium">Premium</option>
+                            <option value="business">Business Class</option>
+                            <option value="first">First Class</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12">
+                          <mdb-checkbox [default]="true">Direct flights only</mdb-checkbox>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search flights</button>
+                        </div>
+                      </div>
+                    </div>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!--Hotels page-->
+  <div *ngIf="isnavigating('hotel')">
+    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
+        <mdb-navbar-brand>
+            <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
+        </mdb-navbar-brand>
+        <links>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link" (click)="navigate('flight')"><mdb-icon fas icon="plane"></mdb-icon> Flights </a>
+            </li>
+            <li class="nav-item active waves-light" mdbWavesEffect>
+                <a class="nav-link" (click)="navigate('hotel')"><mdb-icon fas icon="hotel"></mdb-icon> Hotels <span class="sr-only">(current)</span></a>
+            </li>
+            <!--<li class="nav-item waves-light" mdbWavesEffect>
+                <a class="nav-link"><mdb-icon fas icon="car"></mdb-icon> Car-Hire</a>
+            </li>-->
+          </ul>
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item waves-light flex-center" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
+            </li>
+            <!--<li class="nav-item waves-light" mdbWavesEffect>
+              <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
+            </li>-->
+            <li class="nav-item dropdown mt-2 ml-2" dropdown>
+              <a dropdownToggle mdbWavesEffect type="button" class="nav-link dropdown-toggle waves-light" mdbWavesEffect>
+                <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
+              <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+              </div>
+            </li>
+          </ul>
+        </links>
+    </mdb-navbar>
+
+    <section class="view intro-2" style="background: url('https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg')no-repeat center center; background-size: cover;">
+      <div class="mask rgba-black-strong full-bg-img">
+        <div class="container flex-center">
+          <div class="d-flex align-items-center content-height w-100">
+            <div class="row pt-5 mt-3 w-200 flex-center">
+              <div class="col-md-6 text-center text-md-left mb-5" *ngIf="!deviceXs">
+                <div class="white-text">
+                  <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Find your place to stay !! </h2>
+                  <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
+                  <h4 class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#" class="pink-text"><strong><mdb-icon fas icon="plane-departure"></mdb-icon> Travel</strong> </a> helps travelers by sorting through vast amounts of information to find the best possible travel arrangements. In addition, hotels and specialty travel groups use travel services to promote travel packages with different great offers in flights and hotels.</h4>
+                  
+                </div>
+              </div>
+
+              <div class="col-md-6 col-xl-5 mb-4 offset-xl-1 ">
+                <mdb-card class="wow fadeInRight white-text" data-wow-delay="0.3s">
+                  <mdb-card-body>
+                  <div class="text-center">
+                      <h3 class="white-text">
+                        <mdb-icon fas icon="info-circle" class="text-white"></mdb-icon> Booking Details:</h3>
+                      <hr class="hr-light">
+                    </div>
+                    <div>
+                      <div class="form-row" >
+                        <div class="form-group col-md-12 text-center">
+                          <label> Where do you want to stay?</label>                    
+                          <input mdbInput type="text" class="form-control">
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Check-In</label>
+                          <input type="text" class="form-control" #dp="bsDatepicker" bsDatepicker [bsValue]="bsValue" [bsConfig]="{ isAnimated: true }">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Check-Out</label>
+                          <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
+                        </div>
+                      </div>
+
+                      <div class="form-row">
+                        <div class="form-group col-md-6 text-center">
+                          <label>Number of Rooms</label>
+                          <input type="number" min="1" max="5" class="form-control" id="numberInputEx" mdbInput placeholder="MIN-1 and MAX-5">
+                        </div>
+                        <div class="form-group col-md-6 text-center">
+                          <label>Number of peoples </label>
+                          <input type="number" min="1" max="10" class="form-control" id="numberInputEx" mdbInput placeholder="MIN-1 and MAX-10">
+                        </div>
+                      </div>
+                      
+                      <div class="row">
+                        <div class="col-md-12 text-center">
+                          <button type="button" mdbBtn color="danger" mdbWavesEffect><mdb-icon fas icon="search"></mdb-icon> Search hotels</button>
+                        </div>
+                      </div>
+                    </div>
+                  </mdb-card-body>
+                </mdb-card>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</header>
+
+
+<!--Sign-In-->
+<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content form-elegant">
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+          <strong>Sign in</strong>
+        </h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-4">
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
+          <label for="Form-email1" class="blue-text">Your email</label>
+          <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success *ngIf="modalFormElegantEmail.valid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <label for="Form-pass1" class="blue-text">Your password</label>
+          <mdb-error *ngIf="modalFormElegantPassword.invalid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success *ngIf="modalFormElegantPassword.valid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
+            Input valid
+          </mdb-success>
+          <p class="font-small blue-text d-flex justify-content-end">Forgot
+            <a href="#" class="blue-text ml-1"> Password?</a>
+          </p>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign in
+          </button>
+        </div>
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="google" class="text-center"></mdb-icon>
+          </button>
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="facebook-f"></mdb-icon>
+          </button>
+          <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon far icon="envelope"></mdb-icon>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Not a member?
+          <a href="src/app/payment/payment.component.html" data-toggle="modal" data-target="#basicExample" (click)="frame1.show()" (click)="frame.hide()" class="blue-text ml-1"> Sign Up</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Sign-Up-->
+<div mdbModal #frame1="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content form-elegant">
+      <div class="modal-header text-center">
+        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
+          <strong>Sign Up</strong>
+        </h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame1.hide()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-4">
+        <div class="md-form mb-5">
+          <input type="text" class="form-control" mdbInput>
+          <label class="blue-text">Username:</label>
+        </div>
+
+        <div class="md-form mb-5">
+          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
+          <label for="Form-email1" class="blue-text">Email ID:</label>
+          <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
+            Input invalid
+          </mdb-error>
+          <mdb-success *ngIf="modalFormElegantEmail.valid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">Input
+            valid
+          </mdb-success>
+        </div>
+
+        <div class="md-form mb-5">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <label for="Form-pass1" class="blue-text">New-Password:</label>
+        </div>
+
+        <div class="md-form pb-3">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <label for="Form-pass1" class="blue-text">Re-enter new-password:</label>
+        </div>
+
+        <div class="text-center mb-3">
+          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign Up
+          </button>
+        </div>
+        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign Up with:</p>
+
+        <div class="row my-3 d-flex justify-content-center">
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="google" class="text-center"></mdb-icon>
+          </button>
+          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon fab icon="facebook-f"></mdb-icon>
+          </button>
+          <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
+            <mdb-icon far icon="envelope"></mdb-icon>
+          </button>
+        </div>
+      </div>
+      <div class="modal-footer mx-5 pt-3 mb-1">
+        <p class="font-small grey-text d-flex justify-content-end">Already have an account
+          <a href="src/app/payment/payment.component.html" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" (click)="frame1.hide()" class="blue-text ml-1"> Sign In</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!--Map-->
 <div class="mask rgba-gradient d-flex justify-content-center align-items-center">
     <div class="container">
