@@ -1,6 +1,8 @@
 import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { BackendService } from '../backend.service';
+
 
 
 @Component({
@@ -12,7 +14,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 export class BodyComponent implements OnInit {
 
   @Input() deviceXs: boolean;
-  validatingForm: FormGroup;
+
   bsValue = new Date();
   maxDate = new Date();
 
@@ -21,8 +23,10 @@ export class BodyComponent implements OnInit {
   zoom: number = 2;
   public maps: any = [];
 
+  userClaims: any;
 
-  constructor(private data: DataService) {
+
+  constructor(private data: DataService, private route: Router, private userService:BackendService) {
     this.images = this.data.getdata();
     this.buttons = this.data.getbutton();
     //   this.radiobtn = this.data.radio();
@@ -32,19 +36,17 @@ export class BodyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.validatingForm = new FormGroup({
-      modalFormElegantEmail: new FormControl('', Validators.email),
-      modalFormElegantPassword: new FormControl('', Validators.required)
+    this.userService.getUserClaims().subscribe((data: any) => {
+      this.userClaims = data;
     });
   }
 
-  get modalFormElegantEmail() {
-      return this.validatingForm.get('modalFormElegantEmail');
-    }
 
-  get modalFormElegantPassword() {
-      return this.validatingForm.get('modalFormElegantPassword');
-    }
+  logout() {
+    localStorage.removeItem('user');
+    this.route.navigate(['']);
+  }
+
 
   // Radio button shifting
   private selectedLink: string = "return";

@@ -1,39 +1,70 @@
-<div fxLayout="column" fxLayout.xs="column" fxLayoutGap="25px" fxLayoutAlign="center center">
-    <div fxLayoutAlign="center">
-        <mat-icon style="font-size: 40px;" color="warn">flight_takeoff</mat-icon>
-    </div>
+<!--Sign-In-->
+<div class="container">
+    <div class="row d-flex justify-content-center" >
+        <div class="col-md-6 mt-5 pt-5 heavy-rain-gradient">
+            <div  aria-hidden="true">
+                <div>
+                    <div class="form-elegant">
+                        <div class="text-center">
+                            <h3 class="w-100 dark-grey-text font-weight-bold my-3" >
+                                <strong>Sign in</strong>
+                            </h3>
+                        </div>
+                        <div [formGroup]="login" class="mx-5">
+                            <div class="md-form mb-5">
+                                <input type="email" id="Form-email1" class="form-control" #username mdbInput mdbValidate formControlName="username">
+                                <label for="Form-email1" class="blue-text">Your email</label>
+                                <mdb-error *ngIf="loginEmail.invalid && (loginEmail.dirty || loginEmail.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="loginEmail.valid && (loginEmail.dirty || loginEmail.touched)">
+                                    Input valid
+                                </mdb-success>
+                            </div>
 
-    <div>
-        <p class="decorate2">Get the full experience</p>
-        <p class="decorate">Track prices, make trip planning easier <br> and enjoy faster booking.</p>
-    <div>
+                            <div class="md-form pb-3">
+                                <input type="password" id="Form-pass1" class="form-control" #password mdbInput mdbValidate formControlName="password">
+                                <label for="Form-pass1" class="blue-text">Your password</label>
+                                <mdb-error *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="loginPassword.valid && (loginPassword.dirty || loginPassword.touched)">
+                                    Input valid
+                                </mdb-success>
+                                <p class="font-small blue-text d-flex justify-content-end">
+                                    <a href="#" class="blue-text ml-1"> Forgot Password?</a>
+                                </p>
+                            </div>
 
-    <div class="container" fxLayout="column" fxLayout.xs="column" fxLayoutGap="10px" fxLayoutAlign="center center">
-        <div>
-            <button mat-stroked-button style="padding: 0.5rem;width: 230px;">
-                <mat-icon style="width: 30px; height:30px"
-                svgIcon="glogo"></mat-icon> Google
-            </button> 
+                            <div class="text-center mb-3">
+                                <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" (click)="userLogin(login)" mdbWavesEffect>Sign in
+                                </button>
+                            </div>
+
+                            <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
+
+                            <div class="row my-3 d-flex justify-content-center">
+                            <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon fab icon="google" class="text-center"></mdb-icon>
+                            </button>
+                            <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon fab icon="facebook-f"></mdb-icon>
+                            </button>
+                            <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon far icon="envelope"></mdb-icon>
+                            </button>
+                            </div>
+                        </div>
+                        <div class="mx-5 pt-2 mb-4">
+                            <hr class="hr-light">
+                            <p class="font-small grey-text d-flex justify-content-end">Not a member?
+                            <a href="#" class="blue-text ml-1"> Sign Up</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div>
-            <button mat-stroked-button style="padding: 0.5rem;width: 230px;">
-                <mat-icon style="width: 30px; height:30px"
-                svgIcon="fblogo"></mat-icon> Facebook
-            </button> 
-        </div>
-        <div>
-            <button mat-stroked-button style="padding: 0.5rem;width: 230px;">
-                <mat-icon style="width: 30px; height:30px"
-                svgIcon="elogo"></mat-icon> Email
-            </button>
-        </div>
-    </div>
-    <br>      
-    <div fxLayoutAlign="center">
-        <mat-checkbox color="warn">Remember me</mat-checkbox>
-    </div>  
-    <div>
-        <hr>
-        <p class="decorate">By continuing you agree to <br> Travel's <span><a href="#">Terms of Service</a></span> and <span><a href="#">Privacy Policy</a></span>.</p>
     </div>
 </div>
+

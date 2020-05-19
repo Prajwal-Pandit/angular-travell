@@ -1,3 +1,4 @@
+<!--header-->
 <header class="intro-header">
   <!--Flights page-->
   <div *ngIf="isnavigating('flight')">
@@ -18,10 +19,10 @@
               </li>-->
             </ul>
             <ul class="navbar-nav nav-flex-icons">
-              <li class="nav-item waves-light flex-center" mdbWavesEffect>
-                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
+              <!--<li class="nav-item waves-light flex-center" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample"  mdbWavesEffect>Sign In</button>
             </li>
-            <!--<li class="nav-item waves-light" mdbWavesEffect>
+            <li class="nav-item waves-light" mdbWavesEffect>
               <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
             </li>-->
             <li class="nav-item dropdown mt-2 ml-2" dropdown>
@@ -29,7 +30,7 @@
                 <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                 <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="logout()" mdbWavesEffect>Log Out</a>
               </div>
             </li>
           </ul>
@@ -194,10 +195,10 @@
             </li>-->
           </ul>
           <ul class="navbar-nav nav-flex-icons">
-            <li class="nav-item waves-light flex-center" mdbWavesEffect>
-                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Sign In</button>
+            <!--<li class="nav-item waves-light flex-center" mdbWavesEffect>
+                <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" mdbWavesEffect>Sign In</button>
             </li>
-            <!--<li class="nav-item waves-light" mdbWavesEffect>
+            <li class="nav-item waves-light" mdbWavesEffect>
               <button type="button" mdbBtn color="default" size="md" rounded="true" data-toggle="modal" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>English(UK)/Nepal(NPR)</button>
             </li>-->
             <li class="nav-item dropdown mt-2 ml-2" dropdown>
@@ -205,7 +206,7 @@
                 <mdb-icon fas icon="user"></mdb-icon> Profile<span class="caret"></span></a>
               <div *dropdownMenu class="dropdown-menu dropdown-menu-right dropdown dropdown-primary" role="menu">
                 <a class="dropdown-item waves-light" mdbWavesEffect href="#">My account</a>
-                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" (click)="frame.show()" mdbWavesEffect>Log In</a>
+                <a class="dropdown-item waves-light" mdbWavesEffect href="#" data-target="#basicExample" mdbWavesEffect>Log Out</a>
               </div>
             </li>
           </ul>
@@ -232,7 +233,7 @@
                   <div class="text-center">
                       <h3 class="white-text">
                         <mdb-icon fas icon="info-circle" class="text-white"></mdb-icon> Booking Details:</h3>
-                      <hr class="hr-light">
+                        <hr class="hr-light">
                     </div>
                     <div>
                       <div class="form-row" >
@@ -281,74 +282,17 @@
   </div>
 </header>
 
+<!--<div class="row" *ngIf="userClaims">
+  <div class="col s12 m7">
+    <div class = "card">
+      <div class="card-content">
 
-<!--Sign-In-->
-<div mdbModal #frame="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content form-elegant">
-      <div class="modal-header text-center">
-        <h3 class="modal-title w-100 dark-grey-text font-weight-bold my-3" id="myModalLabel">
-          <strong>Sign in</strong>
-        </h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="frame.hide()">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-4">
-        <div class="md-form mb-5">
-          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
-          <label for="Form-email1" class="blue-text">Your email</label>
-          <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success *ngIf="modalFormElegantEmail.valid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">Input
-            valid
-          </mdb-success>
-        </div>
-
-        <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
-          <label for="Form-pass1" class="blue-text">Your password</label>
-          <mdb-error *ngIf="modalFormElegantPassword.invalid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
-            Input invalid
-          </mdb-error>
-          <mdb-success *ngIf="modalFormElegantPassword.valid && (modalFormElegantPassword.dirty || modalFormElegantPassword.touched)">
-            Input valid
-          </mdb-success>
-          <p class="font-small blue-text d-flex justify-content-end">Forgot
-            <a href="#" class="blue-text ml-1"> Password?</a>
-          </p>
-        </div>
-
-        <div class="text-center mb-3">
-          <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>Sign in
-          </button>
-        </div>
-        <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign in with:</p>
-
-        <div class="row my-3 d-flex justify-content-center">
-          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
-            <mdb-icon fab icon="google" class="text-center"></mdb-icon>
-          </button>
-          <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
-            <mdb-icon fab icon="facebook-f"></mdb-icon>
-          </button>
-          <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
-            <mdb-icon far icon="envelope"></mdb-icon>
-          </button>
-        </div>
-      </div>
-      <div class="modal-footer mx-5 pt-3 mb-1">
-        <p class="font-small grey-text d-flex justify-content-end">Not a member?
-          <a href="src/app/payment/payment.component.html" data-toggle="modal" data-target="#basicExample" (click)="frame1.show()" (click)="frame.hide()" class="blue-text ml-1"> Sign Up</a>
-        </p>
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
-
-<!--Sign-Up-->
+<!--Sign-Up
 <div mdbModal #frame1="mdbModal" class="modal fade top" id="frameModalTop" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content form-elegant">
@@ -367,23 +311,23 @@
         </div>
 
         <div class="md-form mb-5">
-          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantEmail">
+          <input type="email" id="Form-email1" class="form-control" mdbInput mdbValidate>
           <label for="Form-email1" class="blue-text">Email ID:</label>
-          <mdb-error *ngIf="modalFormElegantEmail.invalid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">
+          <mdb-error >
             Input invalid
           </mdb-error>
-          <mdb-success *ngIf="modalFormElegantEmail.valid && (modalFormElegantEmail.dirty || modalFormElegantEmail.touched)">Input
+          <mdb-success>Input
             valid
           </mdb-success>
         </div>
 
         <div class="md-form mb-5">
-          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate >
           <label for="Form-pass1" class="blue-text">New-Password:</label>
         </div>
 
         <div class="md-form pb-3">
-          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate [formControl]="modalFormElegantPassword">
+          <input type="password" id="Form-pass1" class="form-control" mdbInput mdbValidate >
           <label for="Form-pass1" class="blue-text">Re-enter new-password:</label>
         </div>
 
@@ -412,11 +356,11 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 
 
-<!--Map-->
-<div class="mask rgba-gradient d-flex justify-content-center align-items-center">
+<!--Map-Flights-->
+<div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="isnavigating('flight')">
     <div class="container">
         <div class="row mt-5 flex-center text-center">
             <label style="font-family:verdana;font-size:25px"><strong>Be inspired</strong><br><label style="font-size:15px">See the whole world at a glance with our flight price map</label></label>
@@ -428,8 +372,8 @@
 </div>
 
 
-<!--Places-->
-<div class="mr-3 ml-4 pt-5 pb-4">
+<!--Places-Flights-->
+<div class="mr-3 ml-4 pt-5 pb-4" *ngIf="isnavigating('flight')">
     <label style="font-family:verdana;font-size:25px"><strong>Plan your perfect trip</strong><br><label style="font-size:15px">Search Flights & Hotels to our most popular destinations</label></label>
     <div class="row" >
         <div class="col-md-4 mb-4" *ngFor="let image of images">
@@ -448,6 +392,14 @@
         </div>
     </div>
 </div>
+
+
+<!--// https://client-login-microservice.herokuapp.com/api/v1/sc
+{
+    username: dayashankarprajapati48
+    password: password
+}-->
+
 
 <!--Footer-->
 <footer class="page-footer font-small unique-color-dark">

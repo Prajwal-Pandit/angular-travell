@@ -1,42 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { DomSanitizer } from "@angular/platform-browser";
-import { MatIconRegistry } from '@angular/material/icon';
-
-
-
-const googleLogoURL =
-  "https://image.flaticon.com/icons/svg/2702/2702602.svg";
-
-const fbLogoURL =
-  "https://image.flaticon.com/icons/svg/20/20673.svg";
-
-const eLogoURL =
-  "https://image.flaticon.com/icons/svg/2089/2089181.svg";
+import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { BackendService } from '../backend.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: ['./login.component.scss'],
+  providers: [BackendService]
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private matIconRegistry: MatIconRegistry, private domSanitizer: DomSanitizer) {
+  login: FormGroup;
+  response: any;
+  isLoginError: boolean = false;
 
-    this.matIconRegistry.addSvgIcon(
-      "glogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(googleLogoURL));
+  constructor(private backendAPI: BackendService, private route: Router) { }
 
-    this.matIconRegistry.addSvgIcon(
-      "fblogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(fbLogoURL));
 
-    this.matIconRegistry.addSvgIcon(
-      "elogo",
-      this.domSanitizer.bypassSecurityTrustResourceUrl(eLogoURL));
+  ngOnInit() {
+    this.login = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    });
   }
 
 
-  ngOnInit() { }
+  userLogin(FormValue) {
+    console.log(FormValue)
+    return new Promise((resolve, reject) => {
+      if (FormValue.status == "VALID") {
+        this.backendAPI.loginService(FormValue.value).subscribe((result: any) => {
+          if (result.status == 200) {
+            localStorage.setItem('user', result);
+            this.route.navigate(['/body']);
+          }
+        }, error => {
+          if (error.error.error == true && error.status == 404) {
+            alert("Username or password are invalid")
+          }
+        })
+
+      } else {
+        alert("Username and password are required")
+      }
+    })
+  }
+
+  // submit(username, password) {
+  //   this.backendAPI.userAuth(username, password).subscribe((data: any) => {
+  //     localStorage.setItem('userToken', data.authToken);
+  //     this.route.navigate(['/body']);
+  //   }, (err: HttpErrorResponse) => {
+  //     this.isLoginError = true;
+  //   });
+  // }
+
+
+  get loginEmail() {
+    return this.login.get('username');
+  }
+
+  get loginPassword() {
+    return this.login.get('password');
+  }
 
 }

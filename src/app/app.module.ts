@@ -34,6 +34,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { RouterModule } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './auth.guard';
+import { BackendService } from './backend.service';
 
 
 
@@ -75,13 +78,10 @@ import { RouterModule } from '@angular/router';
     }),
     AgmCoreModule.forRoot(),
     NgbModule,
-    RouterModule.forRoot([
-      { path: 'lang', component: LangComponent },
-      { path: 'login', component: LoginComponent },
-    ]),  
+    AppRoutingModule,
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [DataService],
+  providers: [AuthGuard, BackendService],
   bootstrap: [AppComponent],
 })
 export class AppModule { }
