@@ -36,9 +36,7 @@ export class BodyComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.getUserClaims().subscribe((data: any) => {
-      this.userClaims = data;
-    });
+  
   }
 
 

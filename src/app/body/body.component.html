@@ -39,10 +39,10 @@
 
     <section class="view intro-2" >
       <div class="mask rgba-black-light full-bg-img">
-        <div class="container flex-center">
-          <div class="d-flex align-items-center content-height w-100">
+        <div class="container flex-center justify-content-center h-100">
+          <div class="d-flex align-items-center justify-content-center content-height w-100">
             <div class="row pt-5 mt-3 w-200 flex-center">
-              <div class="col-md-6 text-center text-md-left mb-5" *ngIf="!deviceXs">
+              <div class="col-md-6 text-center text-md-left mb-5">
                 <div class="white-text">
                   <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Where to next? !! </h2>
                   <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
@@ -54,7 +54,7 @@
               <div class="col-md-6 col-xl-5 mb-4 offset-xl-1 ">
                 <mdb-card class="wow fadeInRight white-text" data-wow-delay="0.3s">
                   <mdb-card-body>
-                  <div class="text-center" *ngIf="!deviceXs">
+                  <div class="text-center">
                       <h3 class="white-text">
                         <mdb-icon fas icon="info-circle" class="text-white"></mdb-icon> Booking Details:</h3>
                       <hr class="hr-light">
@@ -213,12 +213,12 @@
         </links>
     </mdb-navbar>
 
-    <section class="view intro-2" style="background: url('https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg')no-repeat center center; background-size: cover;">
+    <section class="view intro-2" style="background: url('https://mdbootstrap.com/img/Photos/Others/img%20(40).jpg')no-repeat center center fixed; background-size: cover;">
       <div class="mask rgba-black-strong full-bg-img">
         <div class="container flex-center">
           <div class="d-flex align-items-center content-height w-100">
             <div class="row pt-5 mt-3 w-200 flex-center">
-              <div class="col-md-6 text-center text-md-left mb-5" *ngIf="!deviceXs">
+              <div class="col-md-6 text-center text-md-left mb-5">
                 <div class="white-text">
                   <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Find your place to stay !! </h2>
                   <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
@@ -359,7 +359,164 @@
 </div>-->
 
 
-<!--Map-Flights-->
+
+
+<div class="pb-3" style="background-color:#ffffff; width:100%">
+  <!--SVG images Flights-->
+  <div class="container pt-5" *ngIf="isnavigating('flight')">
+    <div class="row pt-5 pb-5">
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://t3.ftcdn.net/jpg/01/69/13/40/240_F_169134076_yu5dLk6dMDaBOqBi7rnXlquBKHvdJvk8.jpg">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>Go Anywhere</strong>
+              </h1>
+              <p class="px-4">It’s your world and we’ll help you explore it. Find the best prices across millions of flights, hotels and car hire options to create your perfect trip.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Cartoon_Guy_Drinks_While_Using_A_Computer.svg">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>Keep it simple</strong>
+              </h1>
+              <p class="px-4">No hidden fees. No hidden charges. No funny business. With us, you'll always know exactly where your money goes. So you can relax before your trip even begins.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:180px" src="https://esc-alsace.org/wp-content/uploads/2016/06/female-photographer-travel-icons-colorful-illustration-cartoon-tourist-symbols-internationally-famous-landmarks-32114708.jpg">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>Travel your way</strong>
+              </h1>
+              <p class="px-4">Know where you want to go? See the best time to book. Feeling flexible? Get deals on everything from quick breaks to epic adventures.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--SVG images Hotels-->
+  <div class="container pt-5" *ngIf="isnavigating('hotel')">
+    <div>
+      <h1 class="pt-2 flex-center font-weight-bold">
+        <strong>Get the best prices from top hotel providers</strong>
+      </h1>           
+    </div>
+      <div class="row pb-5">
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:100px; width:150px" src="https://seekvectorlogo.com/wp-content/uploads/2018/09/expedia-vector-logo.png">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:100px; width:150px" src="https://www.hoteldiamondchico.com/wp-content/uploads/1280px-Booking.com_logo.svg_.png">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:100px; width:150px" src="https://cdn3.paylesser.com/images/18/store/1552975488599_download.png">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:100px; width:150px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTbQXxyUlT_UfB8KUDzlZf0TK327TGT12tTaRyfsXmbKTi5lEq8&usqp=CAU">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:110px; width:150px" src="https://seeklogo.net/wp-content/uploads/2020/03/Agoda-logo.png">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-2 flex-center px-4">
+          <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+            <img class="card-img-top pt-3" style="height:100px; width:150px" src="https://www.logo.wine/a/logo/Hotels.com/Hotels.com-Logo.wine.svg">
+            <div class="row text-center flex-center align-items-center rounded">
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+
+
+  <div class="container" *ngIf="isnavigating('hotel')">
+    <div class="row pt-5 pb-5">
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://previews.123rf.com/images/illustratorovich/illustratorovich1807/illustratorovich180700059/114705053-woman-and-dog-traveling-hiking-together-graphic.jpg">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>See it all</strong>
+              </h1>
+              <p class="px-4">From local hotels to global brands, discover millions of rooms all around the world.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://cdn.pixelprivacy.com/wp-content/uploads/2018/03/GPS-Mobile.png">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>Compare right here</strong>
+              </h1>
+              <p class="px-4">No need to search anywhere else. The biggest names in travel are right here.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 flex-center px-4">
+        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+          <img class="card-img-top pt-3" style="height:180px; width:180px" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cartoon_Guy_Succeeds_At_Making_Money_Online.svg">
+          <div class="row text-center flex-center align-items-center rounded">
+            <div>
+              <h1 class="pt-2 font-weight-bold">
+                <strong>Get exclusive rates</strong>
+              </h1>
+              <p class="px-4">We’ve special deals with the world's leading hotels – and we share these savings with you.</p>            
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Map-Flights
 <div class="mask rgba-gradient d-flex justify-content-center align-items-center" *ngIf="isnavigating('flight')">
     <div class="container">
         <div class="row mt-5 flex-center text-center">
@@ -369,29 +526,54 @@
         </agm-map>
         </div>
     </div>
-</div>
+</div>-->
 
 
-<!--Places-Flights-->
-<div class="mr-3 ml-4 pt-5 pb-4" *ngIf="isnavigating('flight')">
-    <label style="font-family:verdana;font-size:25px"><strong>Plan your perfect trip</strong><br><label style="font-size:15px">Search Flights & Hotels to our most popular destinations</label></label>
-    <div class="row" >
-        <div class="col-md-4 mb-4" *ngFor="let image of images">
-            <mdb-card [ngStyle]="{ 'background-image': 'url(' + image.image + ')'}">
-                <div class="text-white text-center flex-center align-items-center rgba-black-strong py-5 px-4 rounded">
-                    <div>
-                        <h1 class="py-3 font-weight-bold pink-text">
-                        <strong>{{image.name}}</strong>
-                        </h1>
-                        <p class="pb-3" [innerHTML]="image.desc"></p>
-                        <a mdbBtn color="secondary" size="md" rounded="true" class="waves-light" *ngFor="let button of buttons" mdbWavesEffect>
-                        <mdb-icon fas icon={{button.icon}} class="left"></mdb-icon> {{button.text}}</a>
-                    </div>
-                </div>
-            </mdb-card>
-        </div>
-    </div>
+
+<div class="container pt-5 pb-5 w-">
+  <!--Places-Flights-->
+  <div *ngIf="isnavigating('flight')">
+      <label style="font-family:verdana;font-size:25px"><strong>Plan your perfect trip</strong><br><label style="font-size:15px">Search Flights & Hotels to our most popular destinations</label></label>
+      <div class="row pt-3">
+          <div class="col-md-4 mb-4" *ngFor="let image of images">
+              <mdb-card [ngStyle]="{ 'background-image': 'url(' + image.image + ')'}">
+                  <div class="text-white text-center flex-center align-items-center rgba-black-light py-5 px-4 rounded">
+                      <div>
+                          <h1 class="py-3 font-weight-bold text-white">
+                          <strong>{{image.name}}</strong>
+                          </h1>
+                          <p class="pb-3" [innerHTML]="image.desc"></p>
+                          <a mdbBtn color="secondary" size="md" rounded="true" class="waves-light" *ngFor="let button of buttons" mdbWavesEffect>
+                          <mdb-icon fas icon={{button.icon}} class="left"></mdb-icon> {{button.text}}</a>
+                      </div>
+                  </div>
+              </mdb-card>
+          </div>
+      </div>
+  </div>
+
+
+  <div *ngIf="isnavigating('hotel')">
+      <label style="font-family:verdana;font-size:25px"><strong>Need Inspiration?</strong><br><label style="font-size:15px">View our hand-picked hotel destinations</label></label>
+      <div class="row pt-3">
+          <div class="col-md-4 mb-4" *ngFor="let image of images">
+              <mdb-card [ngStyle]="{ 'background-image': 'url(' + image.image + ')'}">
+                  <div class="text-white rgba-black-light py-5 px-4 rounded">
+                      <div>
+                          <h1 class="py-3 flex-center align-items-center text-center font-weight-bold text-white">
+                          <strong>{{image.name}}</strong>
+                          </h1>
+                          <h3 class="font-weight-bold pt-5 text-align-left deep-orange-text">
+                          <mdb-icon fas icon="angle-right"></mdb-icon><strong> {{image.place}}</strong>
+                          </h3>
+                      </div>
+                  </div>
+              </mdb-card>
+          </div>
+      </div>
+  </div>
 </div>
+
 
 
 <!--// https://client-login-microservice.herokuapp.com/api/v1/sc
@@ -402,7 +584,8 @@
 
 
 <!--Footer-->
-<footer class="page-footer font-small unique-color-dark">
+<footer class="page-footer font-small" style="background: url('https://wallpaperaccess.com/full/1867769.jpg ')no-repeat center center fixed; background-size: cover;">
+  <div class="mask rgba-light-blue-light full-bg-img">
     <div class="blue-gradient">
         <div class="container">
             <div class="row py-4 d-flex align-items-center">
@@ -432,14 +615,14 @@
     <div class="container text-center text-md-left mt-5">
         <div class="row mt-3">
             <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold"><mdb-icon fas icon="plane-departure"></mdb-icon> Travel </h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100%;">
+                <h3 class="text-uppercase font-weight-bold"><mdb-icon fas icon="plane-departure"></mdb-icon> <strong>Travel</strong> </h3>
+                <hr class="blue accent-4 mb-3 mt-0 d-inline-block mx-auto" style="width: 100%;">
                 <p>Here is the description of the company.
                 </p>
             </div>
             <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">Products</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100%;">
+                <h3 class="text-uppercase font-weight-bold"><strong>Products</strong></h3>
+                <hr class="blue accent-4 mb-3 mt-0 d-inline-block mx-auto" style="width: 100%;">
                 <p>
                     <a href="#!">MDBootstrap</a>
                 </p>
@@ -454,8 +637,8 @@
                 </p>
             </div>
             <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                <h6 class="text-uppercase font-weight-bold">Useful links</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100%;">
+                <h3 class="text-uppercase font-weight-bold"><strong>Useful links</strong></h3>
+                <hr class="blue accent-4 mb-3 mt-0 d-inline-block mx-auto" style="width: 100%;">
                 <p>
                     <a href="#!">Your Account</a>
                 </p>
@@ -470,8 +653,8 @@
                 </p>
             </div>
             <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                <h6 class="text-uppercase font-weight-bold">Contact</h6>
-                <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 100%;">
+                <h3 class="text-uppercase font-weight-bold"><strong>Contact</strong></h3>
+                <hr class="blue accent-4 mb-3 mt-0 d-inline-block mx-auto" style="width: 100%;">
                 <p>
                     <mdb-icon fas icon="home" class="mr-3"></mdb-icon> New York, NY 10012, US
                 </p>
@@ -487,7 +670,8 @@
             </div>
         </div>
     </div>
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <div class="footer-copyright text-center py-3 black">© 2020 Copyright:
         <a href="#"> Travel <mdb-icon fas icon="plane-departure"></mdb-icon></a>
+    </div>
     </div>
 </footer>

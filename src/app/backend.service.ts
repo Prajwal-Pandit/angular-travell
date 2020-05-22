@@ -22,7 +22,4 @@ export class BackendService {
   //   return this.http.post(`${this.loginBaseURL}/login`, data);
   // }
 
-  getUserClaims() {
-    return this.http.get(this.loginBaseURL + '/login', {headers: new HttpHeaders({'Authorization':'Bearer'+localStorage.getItem('user')})});
-  }
 }

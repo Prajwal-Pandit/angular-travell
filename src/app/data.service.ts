@@ -14,7 +14,7 @@ export class DataService {
         name: 'Nepal',
         place: 'Nepal',
         desc:
-          'Nepal is a tremendously attractive location for mountaineers, rock climbers and adventure seekers.<br>It is being an attractive destination for adventure.',
+          'Nepal is a tremendously attractive location <br>for mountaineers, rock climbers <br> and adventure seekers.<br>It is being an attractive destination for adventure.',
       },
       {
         image:
@@ -23,14 +23,6 @@ export class DataService {
         place: 'Japan',
         desc:
           'There’s no better place to admire a historic icon of the capital. The station has been looking particularly spiffy after an extensive restoration a few years back. A major spot for many travellers passing in and out of the city.',
-      },
-      {
-        image:
-          'https://drscdn.500px.org/photo/76042243/m%3D900/v2?sig=fcd205d826d355fea312e02cc7af5f48b1a5d173c016efd6979b4cb95504e0d5',
-        name: 'San-Francisco',
-        place: 'San-Francisco',
-        desc:
-          'San Francisco is home to a little bit of everything. Whether you are a first time visitor or a long- time local,<br> San Francisco Golden Gates welcome all.',
       },
       {
         image:
@@ -71,7 +63,7 @@ export class DataService {
         name: 'Canada',
         place: 'Canada',
         desc:
-          'Canada incredible geographical variety is a significant tourist attractor, most mountainous province and has some of the most spectacular mountain scenery in the world. ',
+          'Canada incredible geographical variety is <br> a significant tourist attractor, most mountainous province and has some of the most spectacular mountain scenery in the world. ',
       },
       {
         image:
@@ -79,8 +71,16 @@ export class DataService {
         name: 'Switzerland',
         place: 'Switzerland',
         desc:
-          'Combining expansive greenary,slick cities and bucketful of fresh air, Switzerland is stylish tourist destination that offers countless outdoor adventure and contemporary urban breaks.',
+          'Combining expansive greenary,slick cities <br> and bucketful of fresh air, Switzerland is stylish tourist destination that offers countless outdoor adventure and contemporary urban breaks.',
       },
+      {
+        image:
+          'https://drscdn.500px.org/photo/76042243/m%3D900/v2?sig=fcd205d826d355fea312e02cc7af5f48b1a5d173c016efd6979b4cb95504e0d5',
+        name: 'San-Francisco',
+        place: 'San-Francisco',
+        desc:
+          'San Francisco is home to a little bit of everything. Whether you are a first time visitor or a long- time local,<br> San Francisco Golden Gates welcome all.',
+      }
     ];
   }
 

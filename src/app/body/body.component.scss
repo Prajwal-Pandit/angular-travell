@@ -3,12 +3,14 @@
 }
 .intro-2 {
   background: url("https://mdbootstrap.com/img/Photos/Others/img%20(41).jpg")
-    no-repeat center center;
+    no-repeat center center fixed;
   background-size: cover;
 }
 .view {
-  height: 100vh !important;
+  height: 95vh !important;
 }
+
+
 
 .rgba-gradient .full-bg-img {
   background: linear-gradient(
@@ -42,7 +44,6 @@ h6 {
     height: 1040px;
   }
 }
-
 
 a {
   text-decoration: none;

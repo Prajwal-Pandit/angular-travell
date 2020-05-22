@@ -49,15 +49,6 @@ export class LoginComponent implements OnInit {
     })
   }
 
-  // submit(username, password) {
-  //   this.backendAPI.userAuth(username, password).subscribe((data: any) => {
-  //     localStorage.setItem('userToken', data.authToken);
-  //     this.route.navigate(['/body']);
-  //   }, (err: HttpErrorResponse) => {
-  //     this.isLoginError = true;
-  //   });
-  // }
-
 
   get loginEmail() {
     return this.login.get('username');
