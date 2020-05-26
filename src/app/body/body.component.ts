@@ -2,6 +2,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 import { BackendService } from '../backend.service';
+import { AccountService } from '../services/account.service';
 
 
 
@@ -22,11 +23,16 @@ export class BodyComponent implements OnInit {
   buttons = [];
   zoom: number = 2;
   public maps: any = [];
-
+  userDeatils;
   userClaims: any;
 
 
-  constructor(private data: DataService, private route: Router, private userService:BackendService) {
+  constructor(
+    private data: DataService,
+    private route: Router,
+    private userService: BackendService,
+    private account: AccountService
+  ) {
     this.images = this.data.getdata();
     this.buttons = this.data.getbutton();
     //   this.radiobtn = this.data.radio();
@@ -36,9 +42,13 @@ export class BodyComponent implements OnInit {
   }
 
   ngOnInit() {
-  
+    let tokenDetails = this.account.getUserTokenDetails();
+    this.userDeatils = tokenDetails.data;
   }
 
+  //what else is there? the detail is in token but i have to show it in html like  i have to show the username and address how should i??,
+  // you have now function, you can call and store it in any variable like i did in yes i can but i dont know how to retrieve the specific data like usernam and address only
+  // TODO: learn json object manupulation ok
 
   logout() {
     localStorage.removeItem('user');
@@ -70,6 +80,7 @@ export class BodyComponent implements OnInit {
     this.navi = e;
   }
 
+  //where do you want the details
   isnavigating(name: string): boolean {
 
     if (!this.navi) { // if no radio button is selected, always return false so every nothing is shown  

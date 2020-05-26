@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
       if (FormValue.status == "VALID") {
         this.backendAPI.loginService(FormValue.value).subscribe((result: any) => {
           if (result.status == 200) {
-            localStorage.setItem('user', result);
+            localStorage.setItem('user', result.data.authToken);
             this.route.navigate(['/body']);
           }
         }, error => {

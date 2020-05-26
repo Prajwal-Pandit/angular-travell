@@ -42,9 +42,9 @@
         <div class="container flex-center justify-content-center h-100">
           <div class="d-flex align-items-center justify-content-center content-height w-100">
             <div class="row pt-5 mt-3 w-200 flex-center">
-              <div class="col-md-6 text-center text-md-left mb-5">
+              <div class="col-lg-6 text-center text-md-left mb-5">
                 <div class="white-text">
-                  <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Where to next? !! </h2>
+                  <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Where to next? !! {{userDeatils.clientName}} </h2>
                   <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
                   <h4 class="wow fadeInLeft" data-wow-delay="0.3s"><a href="#" class="pink-text"><strong><mdb-icon fas icon="plane-departure"></mdb-icon> Travel</strong> </a> helps travelers by sorting through vast amounts of information to find the best possible travel arrangements. In addition, hotels and specialty travel groups use travel services to promote travel packages with different great offers in flights and hotels.</h4>
                   
@@ -366,15 +366,15 @@
   <div class="container pt-5" *ngIf="isnavigating('flight')">
     <div class="row pt-5 pb-5">
       <div class="col-md-4 flex-center px-4">
-        <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
+        <div class="row d-flex align-items-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://t3.ftcdn.net/jpg/01/69/13/40/240_F_169134076_yu5dLk6dMDaBOqBi7rnXlquBKHvdJvk8.jpg">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>Go Anywhere</strong>
-              </h1>
-              <p class="px-4">It’s your world and we’ll help you explore it. Find the best prices across millions of flights, hotels and car hire options to create your perfect trip.</p>            
-            </div>
+        </div>
+        <div class="row text-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>Go Anywhere</strong>
+            </h1>
+            <p class="px-4">It’s your world and we’ll help you explore it. Find the best prices across millions of flights, hotels and car hire options to create your perfect trip.</p>            
           </div>
         </div>
       </div>
@@ -382,13 +382,13 @@
       <div class="col-md-4 flex-center px-4">
         <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://upload.wikimedia.org/wikipedia/commons/6/66/Cartoon_Guy_Drinks_While_Using_A_Computer.svg">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>Keep it simple</strong>
-              </h1>
-              <p class="px-4">No hidden fees. No hidden charges. No funny business. With us, you'll always know exactly where your money goes. So you can relax before your trip even begins.</p>            
-            </div>
+        </div>
+        <div class="row text-center flex-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>Keep it simple</strong>
+            </h1>
+            <p class="px-4">No hidden fees. No hidden charges. No funny business. With us, you'll always know exactly where your money goes. So you can relax before your trip even begins.</p>            
           </div>
         </div>
       </div>
@@ -396,13 +396,13 @@
       <div class="col-md-4 flex-center px-4">
         <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:180px" src="https://esc-alsace.org/wp-content/uploads/2016/06/female-photographer-travel-icons-colorful-illustration-cartoon-tourist-symbols-internationally-famous-landmarks-32114708.jpg">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>Travel your way</strong>
-              </h1>
-              <p class="px-4">Know where you want to go? See the best time to book. Feeling flexible? Get deals on everything from quick breaks to epic adventures.</p>            
-            </div>
+        </div>
+        <div class="row text-center pl-2 flex-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>Travel your way</strong>
+            </h1>
+            <p class="px-4">Know where you want to go? See the best time to book. Feeling flexible? Get deals on everything from quick breaks to epic adventures.</p>            
           </div>
         </div>
       </div>
@@ -469,17 +469,17 @@
 
 
   <div class="container" *ngIf="isnavigating('hotel')">
-    <div class="row pt-5 pb-5">
+    <div class="row pt-2 pb-5">
       <div class="col-md-4 flex-center px-4">
         <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://previews.123rf.com/images/illustratorovich/illustratorovich1807/illustratorovich180700059/114705053-woman-and-dog-traveling-hiking-together-graphic.jpg">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>See it all</strong>
-              </h1>
-              <p class="px-4">From local hotels to global brands, discover millions of rooms all around the world.</p>            
-            </div>
+        </div>
+        <div class="row text-center flex-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>See it all</strong>
+            </h1>
+            <p class="px-4">From local hotels to global brands, discover millions of rooms all around the world.</p>            
           </div>
         </div>
       </div>
@@ -487,13 +487,13 @@
       <div class="col-md-4 flex-center px-4">
         <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:150px" src="https://cdn.pixelprivacy.com/wp-content/uploads/2018/03/GPS-Mobile.png">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>Compare right here</strong>
-              </h1>
-              <p class="px-4">No need to search anywhere else. The biggest names in travel are right here.</p>            
-            </div>
+        </div>
+        <div class="row text-center ml-3 flex-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>Compare right here</strong>
+            </h1>
+            <p class="px-4">No need to search anywhere else. The biggest names in travel are right here.</p>            
           </div>
         </div>
       </div>
@@ -501,13 +501,13 @@
       <div class="col-md-4 flex-center px-4">
         <div class="row d-flex align-items-center flex-center" style="background-color:transparent;">
           <img class="card-img-top pt-3" style="height:180px; width:180px" src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Cartoon_Guy_Succeeds_At_Making_Money_Online.svg">
-          <div class="row text-center flex-center align-items-center rounded">
-            <div>
-              <h1 class="pt-2 font-weight-bold">
-                <strong>Get exclusive rates</strong>
-              </h1>
-              <p class="px-4">We’ve special deals with the world's leading hotels – and we share these savings with you.</p>            
-            </div>
+        </div>
+        <div class="row text-center flex-center align-items-center rounded">
+          <div>
+            <h1 class="pt-2 font-weight-bold">
+              <strong>Get exclusive rates</strong>
+            </h1>
+            <p class="px-4">We’ve special deals with the world's leading hotels – and we share these savings with you.</p>            
           </div>
         </div>
       </div>
@@ -530,29 +530,29 @@
 
 
 
-<div class="container pt-5 pb-5 w-">
+<div class="container pt-5 pb-5">
   <!--Places-Flights-->
   <div *ngIf="isnavigating('flight')">
-      <label style="font-family:verdana;font-size:25px"><strong>Plan your perfect trip</strong><br><label style="font-size:15px">Search Flights & Hotels to our most popular destinations</label></label>
-      <div class="row pt-3">
-          <div class="col-md-4 mb-4" *ngFor="let image of images">
-              <mdb-card [ngStyle]="{ 'background-image': 'url(' + image.image + ')'}">
-                  <div class="text-white text-center flex-center align-items-center rgba-black-light py-5 px-4 rounded">
-                      <div>
-                          <h1 class="py-3 font-weight-bold text-white">
-                          <strong>{{image.name}}</strong>
-                          </h1>
-                          <p class="pb-3" [innerHTML]="image.desc"></p>
-                          <a mdbBtn color="secondary" size="md" rounded="true" class="waves-light" *ngFor="let button of buttons" mdbWavesEffect>
-                          <mdb-icon fas icon={{button.icon}} class="left"></mdb-icon> {{button.text}}</a>
-                      </div>
-                  </div>
-              </mdb-card>
+    <label style="font-family:verdana;font-size:25px"><strong>Plan your perfect trip</strong><br><label style="font-size:15px">Search Flights & Hotels to our most popular destinations</label></label>
+    <div class="row pt-3">
+      <div class="col-md-4 mb-4" *ngFor="let image of images">
+        <mdb-card [ngStyle]="{ 'background-image': 'url(' + image.image + ')'}">
+          <div class="text-white text-center flex-center align-items-center rgba-black-light py-5 px-4 rounded">
+            <div>
+              <h1 class="py-3 font-weight-bold text-white">
+                <strong>{{image.name}}</strong>
+              </h1>
+              <p class="pb-3" [innerHTML]="image.desc"></p>
+              <a mdbBtn color="secondary" size="md" rounded="true" class="waves-light" *ngFor="let button of buttons" mdbWavesEffect>
+              <mdb-icon fas icon={{button.icon}} class="left"></mdb-icon> {{button.text}}</a>
+            </div>
           </div>
+          </mdb-card>
       </div>
+    </div>
   </div>
 
-
+  <!--Places-Hotels-->
   <div *ngIf="isnavigating('hotel')">
       <label style="font-family:verdana;font-size:25px"><strong>Need Inspiration?</strong><br><label style="font-size:15px">View our hand-picked hotel destinations</label></label>
       <div class="row pt-3">
