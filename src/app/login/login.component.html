@@ -1,43 +1,47 @@
 <!--Sign-In-->
-<div class="container">
+<div *ngIf="isloading">
+    <app-loading-spinner></app-loading-spinner>
+</div>
+<div class="container"  *ngIf="!isloading">
     <div class="row d-flex justify-content-center" >
-        <div class="col-md-6 mt-5 pt-5 heavy-rain-gradient">
-            <div  aria-hidden="true">
+        <div class="col-md-6 mt-5 pt-3 amy-crisp-gradient z-depth-3">
+            <div aria-hidden="true">
                 <div>
+                    <h3 class="blue-text"><strong> <mdb-icon fas icon="plane-departure"></mdb-icon> Travel</strong> </h3>
                     <div class="form-elegant">
                         <div class="text-center">
-                            <h3 class="w-100 dark-grey-text font-weight-bold my-3" >
-                                <strong>Sign in</strong>
-                            </h3>
+                            <h2 class="w-100 font-weight-bold my-3 animated bounce infinite text-info" >
+                                <strong>SIGN IN</strong>
+                            </h2>
                         </div>
+                        <br>
+                        
                         <div [formGroup]="login" class="mx-5">
                             <div class="md-form mb-5">
-                                <input type="email" id="Form-email1" class="form-control" #username mdbInput mdbValidate formControlName="username">
-                                <label for="Form-email1" class="blue-text">Your email</label>
+                                <input mdbInput type="text" id="Form-email1" class="form-control" #username  mdbValidate formControlName="username">
+                                <label for="Form-email1" class="blue-text">Username or Email</label>
                                 <mdb-error *ngIf="loginEmail.invalid && (loginEmail.dirty || loginEmail.touched)">
                                     Input invalid
                                 </mdb-error>
                                 <mdb-success *ngIf="loginEmail.valid && (loginEmail.dirty || loginEmail.touched)">
-                                    Input valid
                                 </mdb-success>
                             </div>
 
                             <div class="md-form pb-3">
                                 <input type="password" id="Form-pass1" class="form-control" #password mdbInput mdbValidate formControlName="password">
-                                <label for="Form-pass1" class="blue-text">Your password</label>
+                                <label for="Form-pass1" class="blue-text">Password</label>
                                 <mdb-error *ngIf="loginPassword.invalid && (loginPassword.dirty || loginPassword.touched)">
                                     Input invalid
                                 </mdb-error>
                                 <mdb-success *ngIf="loginPassword.valid && (loginPassword.dirty || loginPassword.touched)">
-                                    Input valid
                                 </mdb-success>
-                                <p class="font-small blue-text d-flex justify-content-end">
-                                    <a href="#" class="blue-text ml-1"> Forgot Password?</a>
-                                </p>
+                                <h4 class="font-small d-flex justify-content-end">
+                                    <a href="#" class=" ml-1"> Forgot Password?</a>
+                                </h4>
                             </div>
 
                             <div class="text-center mb-3">
-                                <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" (click)="userLogin(login)" mdbWavesEffect>Sign in
+                                <button type="button" mdbBtn gradient="blue" block="true" rounded="true" class="z-depth-1a waves-light" (click)="userLogin(login)"  mdbWavesEffect>Sign in
                                 </button>
                             </div>
 
@@ -57,9 +61,9 @@
                         </div>
                         <div class="mx-5 pt-2 mb-4">
                             <hr class="hr-light">
-                            <p class="font-small grey-text d-flex justify-content-end">Not a member?
-                            <a href="#" class="blue-text ml-1"> Sign Up</a>
-                            </p>
+                            <h4 class="font-small d-flex justify-content-end">Not a member?
+                            <a class=" ml-1 blue-text" (click)="signup()"> Sign Up</a>
+                            </h4>
                         </div>
                     </div>
                 </div>

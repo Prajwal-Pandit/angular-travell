@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -19,10 +20,10 @@ export class AuthGuard implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
 
     //if (localStorage.getItem('user') != null) {
-     // return true;
+    // return true;
     //} else {
-      //this.route.navigate(['/login']);
-      //return false;
+    //this.route.navigate(['/login']);
+    //return false;
     //} now you don't need this. you can do it by isUserLOGGEDIN() ok if isuserlogged in then true?? i will show you?
     let userLogInStatus = this.account.isUserLoggedIn();
     if (userLogInStatus) {

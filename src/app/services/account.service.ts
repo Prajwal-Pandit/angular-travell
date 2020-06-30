@@ -11,7 +11,6 @@ export class AccountService {
   isUserLoggedIn() {
     let authToken = localStorage.getItem('user');
     if (authToken != null || authToken != undefined) {
-      //TODO: CHECK THE TOKEN EXPIRY DATE AND RETURN TRUE IF VALID ? WILL YOU TRY OK I  WILL TRY OKAY. 
       return true;
     } else {
       return false

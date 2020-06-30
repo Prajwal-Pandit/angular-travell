@@ -91,5 +91,3 @@ export class BodyComponent implements OnInit {
   }
 
 }
-
-

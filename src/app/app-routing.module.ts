@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule, Routes } from '@angular/router';
 import { BodyComponent } from './body/body.component';
 import { AuthGuard } from './auth.guard';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,11 @@ const routes: Routes = [
     path: 'body',
     canActivate: [AuthGuard],
     component: BodyComponent
+  }
+  ,
+  {
+    path: 'signup',
+    component: SignupComponent
   }
 ]
 

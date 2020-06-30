@@ -1,0 +1,116 @@
+<!--Sign-In-->
+<div class="container">
+    <div class="row d-flex justify-content-center" >
+        <div class="col-md-6 mt-5 pt-3 amy-crisp-gradient z-depth-3">
+            <div aria-hidden="true">
+                <div>
+                    <h3 class="blue-text"><strong> <mdb-icon fas icon="plane-departure"></mdb-icon> Travel</strong> </h3>
+                    <div class="form-elegant">
+                        <div class="text-center">
+                            <h2 class="w-100 font-weight-bold my-3 animated bounce infinite text-info" >
+                                <strong>SIGN UP</strong>
+                            </h2>
+                        </div>
+                        <div [formGroup]="signup" class="mx-5">
+                            <div class="md-form mb-5">
+                                <input type="text" id="Form-fname" class="form-control" #firstname mdbInput mdbValidate formControlName="firstname">
+                                <label for="Form-fname" class="blue-text">First Name</label>
+                                <mdb-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="firstName.valid && (username.dirty || firstName.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="Form-lastname" class="form-control" #lastname mdbInput mdbValidate formControlName="lastname">
+                                <label for="Form-lastname" class="blue-text">Last Name</label>
+                                <mdb-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="lastName.valid && (lastName.dirty || lastName.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="Form-address" class="form-control" #address mdbInput mdbValidate formControlName="address">
+                                <label for="Form-address" class="blue-text">Address</label>
+                                <mdb-error *ngIf="address.invalid && (address.dirty || address.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="address.valid && (address.dirty || address.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="email" id="Form-email" class="form-control" #email mdbInput mdbValidate formControlName="email">
+                                <label for="Form-email" class="blue-text">Email ID</label>
+                                <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="email.valid && (email.dirty || email.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="Form-contact" class="form-control" #contact mdbInput mdbValidate formControlName="contact">
+                                <label for="Form-contact" class="blue-text">Contact No.</label>
+                                <mdb-error *ngIf="contact.invalid && (contact.dirty || contact.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="contact.valid && (contact.dirty || contact.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="Form-username" class="form-control" #username mdbInput mdbValidate formControlName="username">
+                                <label for="Form-username" class="blue-text">Username</label>
+                                <mdb-error *ngIf="username.invalid && (username.dirty || username.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="username.valid && (username.dirty || username.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="md-form pb-3">
+                                <input type="password" id="Form-pass" class="form-control" #pass mdbInput mdbValidate formControlName="pass">
+                                <label for="Form-pass" class="blue-text">Password</label>
+                                <mdb-error *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                                    Input invalid
+                                </mdb-error>
+                                <mdb-success *ngIf="pass.valid && (pass.dirty || pass.touched)">
+                                </mdb-success>
+                            </div>
+
+                            <div class="text-center mb-3">
+                                <button type="button" mdbBtn gradient="blue" block="true" rounded="true" (click)="onSubmit(signup)" class="z-depth-1a waves-light"  mdbWavesEffect>Sign Up
+                                </button>
+                            </div>
+
+                            <p class="font-small dark-grey-text text-right d-flex justify-content-center mb-3 pt-2"> or Sign Up with:</p>
+
+                            <div class="row my-3 d-flex justify-content-center">
+                            <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon fab icon="google" class="text-center"></mdb-icon>
+                            </button>
+                            <button type="button" mdbBtn color="white" rounded="true" class="mr-md-3 z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon fab icon="facebook-f"></mdb-icon>
+                            </button>
+                            <button type="button" mdbBtn color="white" rounded="true" class="z-depth-1a waves-light" mdbWavesEffect>
+                                <mdb-icon far icon="envelope"></mdb-icon>
+                            </button>
+                            </div>
+                        </div>
+                        <div class="mx-5 pt-2 mb-4">
+                            <hr class="hr-light">
+                            <h1 class="font-small d-flex justify-content-end">Already have an account
+                            <a (click)='signin()' class=" ml-1 blue-text"> Sign In</a>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -16,6 +16,7 @@ export class LoginComponent implements OnInit {
   login: FormGroup;
   response: any;
   isLoginError: boolean = false;
+  isloading: boolean = false;
 
   constructor(private backendAPI: BackendService, private route: Router) { }
 
@@ -32,14 +33,17 @@ export class LoginComponent implements OnInit {
     console.log(FormValue)
     return new Promise((resolve, reject) => {
       if (FormValue.status == "VALID") {
+        this.isloading = true;
         this.backendAPI.loginService(FormValue.value).subscribe((result: any) => {
           if (result.status == 200) {
             localStorage.setItem('user', result.data.authToken);
-            this.route.navigate(['/body']);
+            this.route.navigate(['body']);
+            this.isloading = false;
           }
         }, error => {
+          this.isloading = false;
           if (error.error.error == true && error.status == 404) {
-            alert("Username or password are invalid")
+            alert("Username or password are invalid");
           }
         })
 
@@ -56,6 +60,10 @@ export class LoginComponent implements OnInit {
 
   get loginPassword() {
     return this.login.get('password');
+  }
+
+  signup() {
+    this.route.navigate(['signup']);
   }
 
 }
