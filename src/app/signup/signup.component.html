@@ -73,12 +73,12 @@
                             </div>
 
                             <div class="md-form pb-3">
-                                <input type="password" id="Form-pass" class="form-control" #pass mdbInput mdbValidate formControlName="pass">
-                                <label for="Form-pass" class="blue-text">Password</label>
-                                <mdb-error *ngIf="pass.invalid && (pass.dirty || pass.touched)">
+                                <input type="password" id="Form-password" class="form-control" #password mdbInput mdbValidate formControlName="password">
+                                <label for="Form-password" class="blue-text">Password</label>
+                                <mdb-error *ngIf="password.invalid && (password.dirty || password.touched)">
                                     Input invalid
                                 </mdb-error>
-                                <mdb-success *ngIf="pass.valid && (pass.dirty || pass.touched)">
+                                <mdb-success *ngIf="password.valid && (password.dirty || password.touched)">
                                 </mdb-success>
                             </div>
 

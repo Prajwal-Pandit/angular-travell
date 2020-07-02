@@ -17,14 +17,25 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signup = new FormGroup({
-      email: new FormControl('', Validators.required),
-      contact: new FormControl('', Validators.required),
       firstname: new FormControl('', Validators.required),
       lastname: new FormControl('', Validators.required),
+      address: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
+      contact: new FormControl('', Validators.required),
       username: new FormControl('', Validators.required),
-      pass: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required)
+      password: new FormControl('', Validators.required),
     });
+  }
+  get firstName() {
+    return this.signup.get('firstname');
+  }
+
+  get lastName() {
+    return this.signup.get('lastname');
+  }
+
+  get address() {
+    return this.signup.get('address');
   }
 
   get email() {
@@ -35,20 +46,12 @@ export class SignupComponent implements OnInit {
     return this.signup.get('contact');
   }
 
-  get firstName() {
-    return this.signup.get('firstname');
-  }
-
-  get lastName() {
-    return this.signup.get('lastname');
-  }
-
   get username() {
     return this.signup.get('username');
   }
 
-  get pass() {
-    return this.signup.get('pass');
+  get password() {
+    return this.signup.get('password');
   }
 
 
@@ -60,18 +63,25 @@ export class SignupComponent implements OnInit {
 
 
 
-  onSubmit(formvalue) {
-    if (!formvalue.value) {
-      return;
-    }
-    else {
-      this.backendAPI.limitedUserSignup(formvalue.value).subscribe((resData: any) => {
-        console.log(resData);
-      }, error => {
-        console.log(error);
-      });
-    }
-    formvalue.reset;
+  // onSubmit(formvalue) {
+  //   if (!formvalue.value) {
+  //     return;
+  //   }
+  //   else {
+  //     this.backendAPI.limitedUserSignup(formvalue.value).subscribe((resData: any) => {
+  //       console.log(resData);
+  //     }, error => {
+  //       console.log(error);
+  //     });
+  //   }
+  //   formvalue.reset;
 
+  // }
+
+  onSubmit(formvalue) {
+    this.backendAPI.limitedUserSignup(formvalue.value).subscribe(
+      res => console.log(res),
+      error => console.log(error)
+    )
   }
 }
