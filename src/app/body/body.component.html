@@ -2,7 +2,7 @@
 <header class="intro-header">
   <!--Flights page-->
   <div *ngIf="isnavigating('flight')">
-    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
+    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <mdb-navbar-brand>
             <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
         </mdb-navbar-brand>
@@ -42,7 +42,7 @@
         <div class="container flex-center justify-content-center h-100">
           <div class="d-flex align-items-center justify-content-center content-height w-100">
             <div class="row pt-5 mt-3 w-200 flex-center">
-              <div class="col-lg-6 text-center text-md-left mb-5">
+              <div class="col-lg-6 text-center text-md-left mb-5 d-none d-md-block">
                 <div class="white-text">
                   <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Where to next? !! {{userDeatils.clientFirstName}} </h2>
                   <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">
@@ -77,12 +77,12 @@
                         <div class="form-group col-md-6 text-center">
                           <label><mdb-icon fas icon="plane-departure"></mdb-icon> From</label>                    
                           <input mdbInput type="text" class="form-control">
-                          <mdb-checkbox  [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
+                          <mdb-checkbox class="d-none d-md-block" [checked]="true" [default]="true">Add nearby airport</mdb-checkbox>
                         </div>
                         <div class="form-group col-md-6 text-center">
                           <label><mdb-icon fas icon="plane-arrival"></mdb-icon> To</label>                    
                           <input mdbInput type="text" class="form-control">
-                          <mdb-checkbox [default]="true">Add nearby airport</mdb-checkbox>
+                          <mdb-checkbox class="d-none d-md-block" [default]="true">Add nearby airport</mdb-checkbox>
                         </div>
                       </div>
 
@@ -96,7 +96,7 @@
                           <input type="text" class="form-control" bsDatepicker [bsConfig]="{ isAnimated: true }">
                         </div>
                       </div>
-                      <div class="row">
+                      <div class="row d-none d-md-block">
                         <div class="col-md-12 text-center">
                           <label>Cabin Class</label>
                           <select class="browser-default custom-select">
@@ -173,7 +173,7 @@
 
   <!--Hotels page-->
   <div *ngIf="isnavigating('hotel')">
-    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top blue-gradient">
+    <mdb-navbar class="text-center" SideClass="navbar navbar-expand-lg navbar-dark fixed-top scrolling-navbar">
         <mdb-navbar-brand>
             <a class="logo navbar-brand waves-light" href="#"><mdb-icon fas icon="plane-departure"></mdb-icon><strong style="font-size:30px;"> Travel</strong></a>
         </mdb-navbar-brand>
@@ -213,7 +213,7 @@
         <div class="container flex-center">
           <div class="d-flex align-items-center content-height w-100">
             <div class="row pt-5 mt-3 w-200 flex-center">
-              <div class="col-md-6 text-center text-md-left mb-5">
+              <div class="col-md-6 text-center text-md-left mb-5 d-none d-md-block">
                 <div class="white-text">
                   <h2 class="h1 h1-responsive font-bold wow fadeInLeft" data-wow-delay="0.3s"> Find your place to stay !! </h2>
                   <hr class="hr-light wow fadeInLeft" data-wow-delay="0.3s">

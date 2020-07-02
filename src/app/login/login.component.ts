@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
 
 
   userLogin(FormValue) {
-    console.log(FormValue)
     return new Promise((resolve, reject) => {
       if (FormValue.status == "VALID") {
         this.isloading = true;

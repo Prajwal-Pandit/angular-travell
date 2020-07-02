@@ -7,10 +7,22 @@
   background-size: cover;
 }
 .view {
-  height: 95vh !important;
+  height: 100vh !important;
 }
 
+.navbar {
+    background-color: transparent;
+}
 
+.top-nav-collapse {
+    background-color: #4285F4;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar {
+        background-color: #4285F4;
+    }
+} 
 
 .rgba-gradient .full-bg-img {
   background: linear-gradient(
