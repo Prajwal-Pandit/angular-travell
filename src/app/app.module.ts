@@ -38,14 +38,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './auth.guard';
 import { BackendService } from './backend.service';
 import { SignupComponent } from './signup/signup.component';
-import { LoadingSpinnerComponent } from './loading-spinner/loading-spinner.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
 @NgModule({
-  declarations: [AppComponent, BodyComponent, PaymentComponent, LoginComponent, LangComponent, SignupComponent, LoadingSpinnerComponent],
+  declarations: [AppComponent, BodyComponent, PaymentComponent, LoginComponent, LangComponent, SignupComponent],
   imports: [
     BrowserModule,
+    NgxSpinnerModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,

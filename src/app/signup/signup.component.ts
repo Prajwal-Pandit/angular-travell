@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +13,7 @@ export class SignupComponent implements OnInit {
 
   signup: FormGroup;
 
-  constructor(private backendAPI: BackendService, private route: Router) { }
+  constructor(private backendAPI: BackendService, private route: Router, private spinner: NgxSpinnerService) { }
 
 
   ngOnInit() {
@@ -63,25 +64,31 @@ export class SignupComponent implements OnInit {
 
 
 
-  // onSubmit(formvalue) {
-  //   if (!formvalue.value) {
-  //     return;
-  //   }
-  //   else {
-  //     this.backendAPI.limitedUserSignup(formvalue.value).subscribe((resData: any) => {
-  //       console.log(resData);
-  //     }, error => {
-  //       console.log(error);
-  //     });
-  //   }
-  //   formvalue.reset;
-
-  // }
-
   onSubmit(formvalue) {
-    this.backendAPI.limitedUserSignup(formvalue.value).subscribe(
-      res => console.log(res),
-      error => console.log(error)
-    )
+    this.spinner.show();
+    if (!formvalue.value) {
+      this.spinner.hide();
+      return;
+    }
+    else {
+      this.backendAPI.limitedUserSignup(formvalue.value).subscribe((resData: any) => {
+        console.log(resData);
+        this.spinner.hide();
+        this.route.navigate(['login']);
+      }, error => {
+          console.log(error);
+          this.spinner.hide();
+      });
+    }
+    formvalue.reset;
+
   }
+
+  // onSubmit(formvalue) {
+  //   this.spinner.show();
+  //   this.backendAPI.limitedUserSignup(formvalue.value).subscribe(
+  //     res => console.log(res),
+  //     error => console.log(error),
+  //   )
+  // }
 }

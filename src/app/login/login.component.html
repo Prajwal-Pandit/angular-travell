@@ -1,8 +1,12 @@
 <!--Sign-In-->
-<div *ngIf="isloading">
-    <app-loading-spinner></app-loading-spinner>
-</div>
-<div class="container"  *ngIf="!isloading">
+<ngx-spinner
+    bdColor="rgba(51,51,51,0.8)"
+    size="medium"
+    color="#fff"
+    type="ball-scale-multiple"
+>
+</ngx-spinner>
+<div class="container">
     <div class="row d-flex justify-content-center" >
         <div class="col-md-6 mt-5 pt-3 amy-crisp-gradient z-depth-3">
             <div aria-hidden="true">

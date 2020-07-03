@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
-import { HttpErrorResponse } from '@angular/common/http';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 @Component({
@@ -16,9 +16,9 @@ export class LoginComponent implements OnInit {
   login: FormGroup;
   response: any;
   isLoginError: boolean = false;
-  isloading: boolean = false;
 
-  constructor(private backendAPI: BackendService, private route: Router) { }
+
+  constructor(private backendAPI: BackendService, private route: Router, private spinner: NgxSpinnerService) { }
 
 
   ngOnInit() {
@@ -30,24 +30,25 @@ export class LoginComponent implements OnInit {
 
 
   userLogin(FormValue) {
+    this.spinner.show();
     return new Promise((resolve, reject) => {
       if (FormValue.status == "VALID") {
-        this.isloading = true;
         this.backendAPI.loginService(FormValue.value).subscribe((result: any) => {
           if (result.status == 200) {
             localStorage.setItem('user', result.data.authToken);
             this.route.navigate(['body']);
-            this.isloading = false;
+            this.spinner.hide();
           }
         }, error => {
-          this.isloading = false;
           if (error.error.error == true && error.status == 404) {
             alert("Username or password are invalid");
+            this.spinner.hide();
           }
         })
 
       } else {
-        alert("Username and password are required")
+        alert("Username and password are required");
+        this.spinner.hide();
       }
     })
   }
