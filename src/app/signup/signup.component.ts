@@ -3,6 +3,7 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { BackendService } from '../backend.service';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
+import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-signup',
@@ -18,33 +19,33 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signup = new FormGroup({
-      firstname: new FormControl('', Validators.required),
-      lastname: new FormControl('', Validators.required),
-      address: new FormControl('', Validators.required),
-      email: new FormControl('', Validators.required),
-      contact: new FormControl('', Validators.required),
+      clientFirstName: new FormControl('', Validators.required),
+      clientLastName: new FormControl('', Validators.required),
+      clientAddress: new FormControl('', Validators.required),
+      clientEmail: new FormControl('', Validators.required),
+      clientContactNumber: new FormControl('', Validators.required),
       username: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
     });
   }
   get firstName() {
-    return this.signup.get('firstname');
+    return this.signup.get('clientFirstName');
   }
 
   get lastName() {
-    return this.signup.get('lastname');
+    return this.signup.get('clientLastName');
   }
 
   get address() {
-    return this.signup.get('address');
+    return this.signup.get('clientAddress');
   }
 
   get email() {
-    return this.signup.get('email');
+    return this.signup.get('clientEmail');
   }
 
   get contact() {
-    return this.signup.get('contact');
+    return this.signup.get('clientContactNumber');
   }
 
   get username() {
@@ -71,19 +72,18 @@ export class SignupComponent implements OnInit {
       return;
     }
     else {
+
       this.backendAPI.limitedUserSignup(formvalue.value).subscribe((resData: any) => {
-        console.log(resData);
         this.spinner.hide();
         this.route.navigate(['login']);
       }, error => {
-          console.log(error);
-          this.spinner.hide();
+        this.spinner.hide();
       });
     }
     formvalue.reset;
 
   }
-
+  // now shall we check??yes
   // onSubmit(formvalue) {
   //   this.spinner.show();
   //   this.backendAPI.limitedUserSignup(formvalue.value).subscribe(
@@ -92,3 +92,4 @@ export class SignupComponent implements OnInit {
   //   )
   // }
 }
+// now we can go ahead, yes

@@ -19,8 +19,13 @@ export class BackendService {
   }
 
   limitedUserSignup(details) {
-    //you need to add headers to this api ie usertype=limited user
-    return this.http.post<any>(this.signupBaseUrl, details);
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'usertype': 'limited user'
+      })
+    };
+    return this.http.post<any>(this.signupBaseUrl, details, httpOptions);
   }
 
 }

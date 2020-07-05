@@ -20,7 +20,7 @@
                         </div>
                         <div [formGroup]="signup" class="mx-5">
                             <div class="md-form mb-5">
-                                <input type="text" id="Form-fname" class="form-control" #firstname mdbInput mdbValidate formControlName="firstname">
+                                <input type="text" id="Form-fname" class="form-control" #firstname mdbInput mdbValidate formControlName="clientFirstName">
                                 <label for="Form-fname" class="blue-text">First Name</label>
                                 <mdb-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)">
                                     Input invalid
@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="md-form mb-5">
-                                <input type="text" id="Form-lastname" class="form-control" #lastname mdbInput mdbValidate formControlName="lastname">
+                                <input type="text" id="Form-lastname" class="form-control" #lastname mdbInput mdbValidate formControlName="clientLastName">
                                 <label for="Form-lastname" class="blue-text">Last Name</label>
                                 <mdb-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)">
                                     Input invalid
@@ -40,7 +40,7 @@
                             </div>
 
                             <div class="md-form mb-5">
-                                <input type="text" id="Form-address" class="form-control" #address mdbInput mdbValidate formControlName="address">
+                                <input type="text" id="Form-address" class="form-control" #address mdbInput mdbValidate formControlName="clientAddress">
                                 <label for="Form-address" class="blue-text">Address</label>
                                 <mdb-error *ngIf="address.invalid && (address.dirty || address.touched)">
                                     Input invalid
@@ -50,7 +50,7 @@
                             </div>
 
                             <div class="md-form mb-5">
-                                <input type="email" id="Form-email" class="form-control" #email mdbInput mdbValidate formControlName="email">
+                                <input type="email" id="Form-email" class="form-control" #email mdbInput mdbValidate formControlName="clientEmail">
                                 <label for="Form-email" class="blue-text">Email ID</label>
                                 <mdb-error *ngIf="email.invalid && (email.dirty || email.touched)">
                                     Input invalid
@@ -60,7 +60,7 @@
                             </div>
 
                             <div class="md-form mb-5">
-                                <input type="text" id="Form-contact" class="form-control" #contact mdbInput mdbValidate formControlName="contact">
+                                <input type="text" id="Form-contact" class="form-control" #contact mdbInput mdbValidate formControlName="clientContactNumber">
                                 <label for="Form-contact" class="blue-text">Contact No.</label>
                                 <mdb-error *ngIf="contact.invalid && (contact.dirty || contact.touched)">
                                     Input invalid

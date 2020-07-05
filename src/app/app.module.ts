@@ -29,7 +29,7 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AgmCoreModule } from '@agm/core';
 import { MatGoogleMapsAutocompleteModule } from '@angular-material-extensions/google-maps-autocomplete';
 import { LoginComponent } from './login/login.component';
-import { LangComponent } from './lang/lang.component';
+// import { LangComponent } from './lang/lang.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
@@ -40,10 +40,10 @@ import { BackendService } from './backend.service';
 import { SignupComponent } from './signup/signup.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 
-
+// I have deleted just now it was of no use
 
 @NgModule({
-  declarations: [AppComponent, BodyComponent, PaymentComponent, LoginComponent, LangComponent, SignupComponent],
+  declarations: [AppComponent, BodyComponent, PaymentComponent, LoginComponent, SignupComponent],
   imports: [
     BrowserModule,
     NgxSpinnerModule,
